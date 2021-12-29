@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>Hexo+Gihub Pages博客搭建</title>
+      <title>博客搭建(一)   雏形</title>
       <link href="/2021/12/28/blogSetUp/"/>
       <url>/2021/12/28/blogSetUp/</url>
       
@@ -21,6 +21,10 @@
         <tags>
             
             <tag> 博客搭建 </tag>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Github Pages </tag>
             
         </tags>
       
