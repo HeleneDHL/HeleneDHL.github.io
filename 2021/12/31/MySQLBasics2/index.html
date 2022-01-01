@@ -6,7 +6,9 @@
     <meta charset="utf-8">
     <meta name="keywords" content="MySQL基础知识（二）, Helene">
     <meta name="description" content="3. DML语言3.1 概述数据操作语言：插入：insert修改：update删除：delete
-3.2 插入1. 方式一语法：insert into 表名(字段名,…) values(值,…);特点：1、要求值的类型和字段的类型要一致或兼">
+3.2 插入1. 方式一    语法：insert into 表名(字段名,…) values(值,…);特点：
+
+要求值的类型和字段的类型要">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -408,7 +410,23 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="3-DML语言"><a href="#3-DML语言" class="headerlink" title="3. DML语言"></a>3. DML语言</h2><h3 id="3-1-概述"><a href="#3-1-概述" class="headerlink" title="3.1 概述"></a>3.1 概述</h3><p>数据操作语言：<br>插入：insert<br>修改：update<br>删除：delete</p>
-<h3 id="3-2-插入"><a href="#3-2-插入" class="headerlink" title="3.2 插入"></a>3.2 插入</h3><p><strong>1. 方式一</strong><br>语法：insert into 表名(字段名,…) values(值,…);<br><strong>特点：</strong><br>1、要求值的类型和字段的类型要一致或兼容<br>2、字段的个数和顺序不一定与原始表中的字段个数和顺序一致<br>但必须保证值和字段一一对应<br>3、假如表中有可以为null的字段，注意可以通过以下两种方式插入null值<br>①字段和值都省略<br>②字段写上，值使用null<br>4、字段和值的个数必须一致<br>5、字段名可以省略，默认所有列<br><strong>2. 方式二</strong><br>语法：insert into 表名 set 字段=值,字段=值,…;<br><strong>3. 两种方式 的区别：</strong><br>1.方式一支持一次插入多行，语法如下：<br>insert into 表名【(字段名,..)】 values(值，..),(值，…),…;<br>2.方式一支持子查询，语法如下：<br>insert into 表名</p>
+<h3 id="3-2-插入"><a href="#3-2-插入" class="headerlink" title="3.2 插入"></a>3.2 插入</h3><p><strong>1. 方式一</strong><br>    语法：insert into 表名(字段名,…) values(值,…);<br><strong>特点：</strong></p>
+<ol>
+<li>要求值的类型和字段的类型要一致或兼容</li>
+<li>字段的个数和顺序不一定与原始表中的字段个数和顺序一致<br>但必须保证值和字段一一对应</li>
+<li>假如表中有可以为null的字段，注意可以通过以下两种方式插入null值<ul>
+<li>字段和值都省略</li>
+<li>字段写上，值使用null</li>
+</ul>
+</li>
+<li>字段和值的个数必须一致</li>
+<li>字段名可以省略，默认所有列</li>
+</ol>
+<p><strong>2. 方式二</strong><br>语法：insert into 表名 set 字段=值,字段=值,…;<br><strong>3. 两种方式 的区别：</strong></p>
+<ol>
+<li>方式一支持一次插入多行，语法如下：<br>insert into 表名【(字段名,..)】 values(值，..),(值，…),…;</li>
+<li>方式一支持子查询，语法如下：<br>insert into 表名</li>
+</ol>
 <pre class=" language-MySQL"><code class="language-MySQL">#方式一：经典的插入
 /*
 语法：insert into 表名(列名,...) values(值1,...);
@@ -526,7 +544,11 @@ SET b.`boyfriend_id` = 2
 WHERE
     bo.`id` IS NULL;
 </code></pre>
-<h3 id="3-3-删除"><a href="#3-3-删除" class="headerlink" title="3.3 删除"></a>3.3 删除</h3><h4 id="3-3-1-概述"><a href="#3-3-1-概述" class="headerlink" title="3.3.1 概述"></a>3.3.1 概述</h4><p>方式一：delete<br>式二：truncate语句<br><strong>语法：</strong><br>1、单表的删除【★】<br>delete from 表名 where 筛选条件<br>2、多表的删除【补充】<br>    <strong>sql92语法：</strong><br>    delete 表1的别名,表2的别名<br>    from 表1 别名,表2 别名<br>    where 连接条件<br>    and 筛选条件;</p>
+<h3 id="3-3-删除"><a href="#3-3-删除" class="headerlink" title="3.3 删除"></a>3.3 删除</h3><h4 id="3-3-1-概述"><a href="#3-3-1-概述" class="headerlink" title="3.3.1 概述"></a>3.3.1 概述</h4><p>方式一：delete<br>式二：truncate语句<br><strong>语法：</strong></p>
+<ol>
+<li>单表的删除【★】<br>delete from 表名 where 筛选条件</li>
+<li>多表的删除【补充】<br> <strong>sql92语法：</strong><br> delete 表1的别名,表2的别名<br> from 表1 别名,表2 别名<br> where 连接条件<br> and 筛选条件;</li>
+</ol>
 <p><strong>sql99语法：</strong><br>delete 表1的别名,表2的别名<br>from 表1 别名<br>inner|left|right join 表2 别名 on 连接条件<br>where 筛选条件;</p>
 <p><strong>方式一  delete</strong></p>
 <pre class=" language-MySQL"><code class="language-MySQL">#1.单表的删除
@@ -675,17 +697,27 @@ FROM author
 </code></pre>
 <h3 id="4-3-数据类型"><a href="#4-3-数据类型" class="headerlink" title="4.3 数据类型"></a>4.3 数据类型</h3><h4 id="4-3-1-数值型"><a href="#4-3-1-数值型" class="headerlink" title="4.3.1 数值型"></a>4.3.1 数值型</h4><ol>
 <li><p>整型<br> tinyint、smallint、mediumint、int/integer、bigint<br> 1           2              3                  4                  8</p>
-<p> 特点：<br> ①都可以设置无符号和有符号，默认有符号，通过unsigned设置无符号<br> ②如果超出了范围，会报out or range异常，插入临界值<br> ③长度可以不指定，默认会有一个长度<br> 长度代表显示的最大宽度，如果不够则左边用0填充，但需要搭配zerofill，并且默认变为无符号整型</p>
+<p> 特点：</p>
+<ul>
+<li>都可以设置无符号和有符号，默认有符号，通过unsigned设置无符号</li>
+<li>如果超出了范围，会报out or range异常，插入临界值</li>
+<li>长度可以不指定，默认会有一个长度</li>
+<li>长度代表显示的最大宽度，如果不够则左边用0填充，但需要搭配zerofill，并且默认变为无符号整型</li>
+</ul>
 </li>
 <li><p>浮点型<br> 定点数：decimal(M,D)<br> 浮点数:<br>float(M,D)   4<br>double(M,D)  8</p>
-<p> 特点：<br> ①M代表整数部位+小数部位的个数，D代表小数部位<br> ②如果超出范围，则报out or range异常，并且插入临界值<br> ③M和D都可以省略，但对于定点数，M默认为10，D默认为0<br> ④如果精度要求较高，则优先考虑使用定点数</p>
-</li>
-<li><p>字符型<br>char、varchar、binary、varbinary、enum、set、text、blob</p>
-<p>char：固定长度的字符，写法为char(M)，最大长度不能超过M，其中M可以省略，默认为1<br>varchar：可变长度的字符，写法为varchar(M)，最大长度不能超过M，其中M不可以省略</p>
-</li>
-<li><p>日期型<br> year年<br> date日期<br> time时间<br> datetime 日期+时间          8<br> timestamp 日期+时间         4   比较容易受时区、语法模式、版本的影响，更能反映当前时区的真实时间</p>
+<p> 特点：</p>
+<ul>
+<li>M代表整数部位+小数部位的个数，D代表小数部位</li>
+<li>如果超出范围，则报out or range异常，并且插入临界值</li>
+<li>M和D都可以省略，但对于定点数，M默认为10，D默认为0</li>
+<li>如果精度要求较高，则优先考虑使用定点数</li>
+</ul>
 </li>
 </ol>
+<h4 id="4-3-2-字符型"><a href="#4-3-2-字符型" class="headerlink" title="4.3.2 字符型"></a>4.3.2 字符型</h4><p>   char、varchar、binary、varbinary、enum、set、text、blob</p>
+<p>   char：固定长度的字符，写法为char(M)，最大长度不能超过M，其中M可以省略，默认为1<br>   varchar：可变长度的字符，写法为varchar(M)，最大长度不能超过M，其中M不可以省略</p>
+<h4 id="4-3-1-日期型"><a href="#4-3-1-日期型" class="headerlink" title="4.3.1 日期型"></a>4.3.1 日期型</h4><p>year年<br>date日期<br>time时间<br>datetime 日期+时间          8<br>timestamp 日期+时间         4   比较容易受时区、语法模式、版本的影响，更能反映当前时区的真实时间</p>
 <h3 id="4-4-常见的约束"><a href="#4-4-常见的约束" class="headerlink" title="4.4 常见的约束"></a>4.4 常见的约束</h3><h4 id="4-4-1-常见的约束"><a href="#4-4-1-常见的约束" class="headerlink" title="4.4.1 常见的约束"></a>4.4.1 常见的约束</h4><ul>
 <li><p>NOT NULL：非空，该字段的值必填</p>
 </li>
@@ -1110,8 +1142,14 @@ WHERE
 <td></td>
 </tr>
 </tbody></table>
-<h3 id="6-2-变量"><a href="#6-2-变量" class="headerlink" title="6.2 变量"></a>6.2 变量</h3><h4 id="6-2-1-概述"><a href="#6-2-1-概述" class="headerlink" title="6.2.1 概述"></a>6.2.1 概述</h4><p><strong>分类</strong><br>一、系统变量<br>说明：变量由系统提供的，不用自定义<br>语法：<br>①查看系统变量<br>show 【global|session 】variables like ‘’; 如果没有显式声明global还是session，则默认是session<br>②查看指定的系统变量的值<br>select @@【global|session】.变量名; 如果没有显式声明global还是session，则默认是session</p>
-<p>③为系统变量赋值<br>方式一：<br>set 【global|session 】 变量名=值; 如果没有显式声明global还是session，则默认是session<br>方式二：<br>set @@global.变量名=值;<br>set @@变量名=值；</p>
+<h3 id="6-2-变量"><a href="#6-2-变量" class="headerlink" title="6.2 变量"></a>6.2 变量</h3><h4 id="6-2-1-概述"><a href="#6-2-1-概述" class="headerlink" title="6.2.1 概述"></a>6.2.1 概述</h4><p><strong>分类</strong><br>一、系统变量<br>说明：变量由系统提供的，不用自定义<br>语法：</p>
+<ul>
+<li>①查看系统变量<br>  show 【global|session 】variables like ‘’; 如果没有显式声明global还是session，则默认是session</li>
+<li>②查看指定的系统变量的值<br>  select @@【global|session】.变量名; 如果没有显式声明global还是session，则默认是session</li>
+</ul>
+<ul>
+<li>③为系统变量赋值<br>  方式一：<br>  set 【global|session 】 变量名=值; 如果没有显式声明global还是session，则默认是session<br>  方式二：<br>  set @@global.变量名=值;<br>  set @@变量名=值；</li>
+</ul>
 <h4 id="6-2-2-全局变量"><a href="#6-2-2-全局变量" class="headerlink" title="6.2.2 全局变量"></a>6.2.2 全局变量</h4><p>服务器层面上的，必须拥有super权限才能为系统变量赋值，作用域为整个服务器，也就是针对于所有连接（会话）有效</p>
 <pre class=" language-MySQL"><code class="language-MySQL">#①查看所有全局变量
 SHOW GLOBAL VARIABLES;
@@ -1137,12 +1175,22 @@ SET SESSION tx_isolation='read-committed';
 </code></pre>
 <h4 id="6-2-4-自定义变量"><a href="#6-2-4-自定义变量" class="headerlink" title="6.2.4 自定义变量"></a>6.2.4 自定义变量</h4><ol>
 <li><p>用户变量<br> 作用域：针对于当前连接（会话）生效<br> 位置：begin end里面，也可以放在外面<br> 使用：</p>
-<p> ①声明并赋值：<br> set @变量名=值;或<br> set @变量名:=值;或<br> select @变量名:=值;</p>
-<p> ②更新值<br> 方式一：<br> set @变量名=值;或<br> set @变量名:=值;或<br> select @变量名:=值</p>
-<p> 方式二：<br> select xx into @变量名 from 表;</p>
-<p> ③使用<br> select @变量名;</p>
+<ul>
+<li><p>①声明并赋值：<br>  set @变量名=值;或<br>  set @变量名:=值;或<br>  select @变量名:=值;</p>
 </li>
-<li><p>局部变量<br> 作用域：仅仅在定义它的begin end中有效<br> 位置：只能放在begin end中，而且只能放在第一句<br> 使用：<br> ①声明<br> declare 变量名 类型<br> declare 变量名 类型 【default 值】;<br> ②赋值或更新<br> 方式一：<br> set 变量名=值;或<br> set 变量名:=值;或<br> select @变量名:=值;<br> 方式二：<br> select xx into 变量名 from 表;<br> ③使用<br> select 变量名;</p>
+<li><p>②更新值<br>  方式一：<br>  set @变量名=值;或<br>  set @变量名:=值;或<br>  select @变量名:=值</p>
+<p>  方式二：<br>  select xx into @变量名 from 表;</p>
+</li>
+<li><p>③使用<br>  select @变量名;</p>
+</li>
+</ul>
+</li>
+<li><p>局部变量<br> 作用域：仅仅在定义它的begin end中有效<br> 位置：只能放在begin end中，而且只能放在第一句<br> 使用：</p>
+<ul>
+<li>①声明<br>  declare 变量名 类型<br>  declare 变量名 类型 【default 值】;</li>
+<li>②赋值或更新<br>  方式一：<br>  set 变量名=值;或<br>  set 变量名:=值;或<br>  select @变量名:=值;<br>  方式二：<br>  select xx into 变量名 from 表;</li>
+<li>③使用<br>  select 变量名;</li>
+</ul>
 </li>
 </ol>
 <pre class=" language-MySQL"><code class="language-MySQL">#案例：声明两个变量，求和并打印
