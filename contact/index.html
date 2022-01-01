@@ -107,6 +107,17 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -182,6 +193,17 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
 		</a>
           
         </li>
@@ -274,6 +296,99 @@
             </div>
             <!--valine评论弹幕-->
             
+                <p>
+                    <b>畅所欲言</b><br>
+                    <b>在这里可以留下你的足迹，欢迎在下方留言</b><br>
+                     <b>并留下您的交友连接</b>
+                </p>
+                <div class="container">
+                    <section id="custom" class="bb-section">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        文字：<input class="form-control" name="info" type="text" placeholder="您的留言"/>
+                                    </div>
+                                    <div class="form-group">
+                                        链接：<input class="form-control" name="href" type="text" placeholder="您的交友连接"/>
+                                    </div>
+                                    <div class="form-group">
+                                        速度：<input  class="form-control"  name="speed" type="text" placeholder="5~20" value="16" />
+                                    </div>
+                                </form>
+                                <div class="form-group">
+                                    <button id="send"  class="btn" onclick="run()">留言</button>
+                                    <button id="clear" class="btn " onclick="clear_barrage()"> 清除</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <script type="text/javascript">
+                    AV.init({
+                        appId: 'rFeUWk7NpQXiluzcxdQENisf-gzGzoHsz',
+                        appKey: 'B4wlcRkF1MrkcQu6RWXSnyN4'
+                    });
+
+                    $(function() {
+                        do_barrager();
+                        async function do_barrager() {
+                            let lists = [];
+                            //查询弹幕
+                            const query = new AV.Query('barrager');
+                            const barrager = await query.find().then((barrager) => {
+                                lists = barrager;
+                            })
+                            let length = lists.length;
+                            let index = 0;
+                            const timer = setInterval(() => {
+                                if (index === length) {
+                                    clearInterval(timer);
+                                    do_barrager()
+                                } else {
+                                    let obj = lists[index]
+                                    let jsonObject = eval('(' + JSON.stringify(obj) + ')');
+                                    $('body').barrager({
+                                        'img': '/medias/barrager/' + Math.floor(Math.random() * 3) + ".png",
+                                        'href': jsonObject.href,
+                                        'info': jsonObject.info,
+                                        'speed': jsonObject.speed
+                                    });
+                                    index++;
+                                }
+                            }, 500)
+                        }
+                    });
+
+                    //发送弹幕
+                    function  run(){
+                        let info = $('input[name=info]').val();
+                        (info === '' ) ?  info='hello world' : info=info;
+                        let href = $('input[name=href]').val();
+                        (href === '' ) ?  href='https://github.com/blinkfox/hexo-theme-matery' : href=href;
+                        let speed = parseInt($('input[name=speed]').val());
+                        if(speed > 20 || speed < 5)
+                            speed = Math.floor(Math.random() * 10) + 5;
+                        const Barrager = AV.Object.extend('barrager');
+                        const barrager = new Barrager();
+                        barrager.set('href', href);
+                        barrager.set('info', info);
+                        barrager.set('speed', speed);
+                        barrager.save().then((todo) => {
+                            $(" input[ name='info' ] ").val("")
+                            $(" input[ name='href' ] ").val("")
+                            $(" input[ name='speed' ] ").val("")
+                        });
+                    }
+
+                    function  clear_barrage()
+                    {
+                        $.fn.barrager.removeAll();
+                    }
+
+                </script>
+            
         </div>
 
         <!--其他评论card-->
@@ -359,7 +474,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+                <span id="year">2021-2022</span>
             
             <a href="/about" target="_blank">Helene</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -367,7 +482,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">939</span>
+                        class="white-color">7.2k</span>
             
             
             
