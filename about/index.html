@@ -118,6 +118,17 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -204,6 +215,17 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
 		</a>
           
         </li>
@@ -410,7 +432,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,4,1],
+                data: [0,0,0,0,0,0,0,0,0,0,0,3,2],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -452,7 +474,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"博客搭建","value":1},{"name":"MySQL","value":2},{"name":"软件测试","value":2}],
+                data: [{"name":"博客搭建","value":1},{"name":"MySQL","value":3},{"name":"软件测试","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -476,7 +498,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["MySQL","软件测试","博客搭建","Hexo","Github Pages","测试环境搭建"]
+                data: ["MySQL","博客搭建","Hexo","Github Pages","软件测试","测试环境搭建"]
             }
         ],
         yAxis: [
@@ -489,7 +511,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [2,2,1,1,1,1],
+                data: [3,1,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -645,7 +667,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">22.6k</span>
+                        class="white-color">17.7k</span>
             
             
             
