@@ -1,0 +1,1791 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Linux基础（一）常用命令, Helene">
+    <meta name="description" content="1. 目录操作命令1.1 ls显示目录下的内容。
+
+第一列：权限。
+第二列：引用计数。文件的引用计数代表该文件的硬链接个数，而目录的引用计数代表该目录有多少个一级子目录。
+第三列：所有者，也就是这个文件属于哪个用户。默认所有者是文件的建立用">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Linux基础（一）常用命令 | Helene</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Helene</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Helene</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Linux基础（一）常用命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-01-07
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="1-目录操作命令"><a href="#1-目录操作命令" class="headerlink" title="1. 目录操作命令"></a>1. 目录操作命令</h2><h3 id="1-1-ls"><a href="#1-1-ls" class="headerlink" title="1.1 ls"></a>1.1 ls</h3><p>显示目录下的内容。<br><img src="/2022/01/07/Linux/1.png"><br><img src="/2022/01/07/Linux/2.png"></p>
+<ul>
+<li>第一列：权限。</li>
+<li>第二列：引用计数。文件的引用计数代表该文件的硬链接个数，而目录的引用计数代表该目录有多少个一级子目录。</li>
+<li>第三列：所有者，也就是这个文件属于哪个用户。默认所有者是文件的建立用户</li>
+<li>第四列：所属组。默认所属组是文件建立用户的有效组，一般情况下就是建立用户的所在组。</li>
+<li> 第五列：大小。默认单位是字节。</li>
+<li>第六列：文件修改时间。文件状态修改时间或文件数据修改时间都会更改这个时间，注意这个时间不是文件的创建时间。</li>
+<li>第七列：文件名。</li>
+</ul>
+<h3 id="1-2-cd"><a href="#1-2-cd" class="headerlink" title="1.2 cd"></a>1.2 cd</h3><p>切换所在目录的命令<br><img src="/2022/01/07/Linux/3.png"></p>
+<h3 id="1-3-pwd"><a href="#1-3-pwd" class="headerlink" title="1.3 pwd"></a>1.3 pwd</h3><p>查询所在目录的命令</p>
+<h3 id="1-4-mkdir"><a href="#1-4-mkdir" class="headerlink" title="1.4 mkdir"></a>1.4 mkdir</h3><p>创建目录的命令<br><img src="/2022/01/07/Linux/4.png"></p>
+<h3 id="1-5-rmdir"><a href="#1-5-rmdir" class="headerlink" title="1.5 rmdir"></a>1.5 rmdir</h3><p>删除空目录的命令<br> <img src="/2022/01/07/Linux/5.png"></p>
+<h2 id="2-文件操作命令"><a href="#2-文件操作命令" class="headerlink" title="2. 文件操作命令"></a>2. 文件操作命令</h2><h3 id="2-1-touch"><a href="#2-1-touch" class="headerlink" title="2.1 touch"></a>2.1 touch</h3><p>创建空文件或修改文件时间</p>
+<h3 id="2-2-stat"><a href="#2-2-stat" class="headerlink" title="2.2 stat"></a>2.2 stat</h3><p>查看文件详细信息<br><img src="/2022/01/07/Linux/6.png"></p>
+<h3 id="2-3-cat"><a href="#2-3-cat" class="headerlink" title="2.3 cat"></a>2.3 cat</h3><p>查看文件内容<br><img src="/2022/01/07/Linux/7.png"></p>
+<h3 id="2-4-more"><a href="#2-4-more" class="headerlink" title="2.4 more"></a>2.4 more</h3><p>分屏显示文件</p>
+<ul>
+<li>空格键：向下翻页。</li>
+<li>b：向上翻页。</li>
+<li>回车键：向下滚动一行。</li>
+<li>/字符串：搜索指定的字符串。</li>
+<li>q：退出。</li>
+</ul>
+<h3 id="2-5-less"><a href="#2-5-less" class="headerlink" title="2.5 less"></a>2.5 less</h3><p>分行显示文件</p>
+<h3 id="2-6-head"><a href="#2-6-head" class="headerlink" title="2.6 head"></a>2.6 head</h3><p>显示文件开头<br><img src="/2022/01/07/Linux/8.png"></p>
+<h3 id="2-7-tail"><a href="#2-7-tail" class="headerlink" title="2.7 tail"></a>2.7 tail</h3><p>显示文件结尾<br><img src="/2022/01/07/Linux/9.png"></p>
+<h3 id="2-8-ln"><a href="#2-8-ln" class="headerlink" title="2.8 ln"></a>2.8 ln</h3><p>在文件之间建立链接<br><img src="/2022/01/07/Linux/10.png"><br>创建硬链接</p>
+<ul>
+<li>源文件和硬链接文件拥有相同的 Inode 和 Block</li>
+<li>修改任意一个文件，另一个都改变</li>
+<li>删除任意一个文件，另一个都能使用</li>
+<li>硬链接标记不清，很难确认硬链接文件位置，不建议使用</li>
+<li>硬链接不能链接目录</li>
+<li>硬链接不能跨分区<br><img src="/2022/01/07/Linux/11.png"><br>创建软链接</li>
+<li>软链接和源文件拥有不同的 Inode 和 Block</li>
+<li>两个文件修改任意一个，另一个都改变</li>
+<li>删除软链接，源文件不受影响；删除源文件，软链接不能使用</li>
+<li>软链接没有实际数据，只保存源文件的 Inode，不论源文件多大，软链接大小不变</li>
+<li>软链接的权限是最大权限 lrwxrwxrwx.，但是由于没有实际数据，最终访问时需要参考源文件权限</li>
+<li>软链接可以链接目录</li>
+<li>软链接可以跨分区</li>
+<li>软链接特征明显，建议使用软连接<br><img src="/2022/01/07/Linux/12.png"></li>
+</ul>
+<h2 id="3-目录和文件都能操作的命令"><a href="#3-目录和文件都能操作的命令" class="headerlink" title="3. 目录和文件都能操作的命令"></a>3. 目录和文件都能操作的命令</h2><h3 id="3-1-rm"><a href="#3-1-rm" class="headerlink" title="3.1 rm"></a>3.1 rm</h3><p>删除文件或目录<br><img src="/2022/01/07/Linux/13.png"></p>
+<h3 id="3-2-cp"><a href="#3-2-cp" class="headerlink" title="3.2 cp"></a>3.2 cp</h3><p>复制文件和目录<br><img src="/2022/01/07/Linux/14.png"></p>
+<h3 id="3-3-mv"><a href="#3-3-mv" class="headerlink" title="3.3 mv"></a>3.3 mv</h3><p>移动文件或改名<br><img src="/2022/01/07/Linux/15.png"></p>
+<h2 id="4-基本权限管理"><a href="#4-基本权限管理" class="headerlink" title="4. 基本权限管理"></a>4. 基本权限管理</h2><h3 id="4-1-权限的介绍"><a href="#4-1-权限的介绍" class="headerlink" title="4.1 权限的介绍"></a>4.1 权限的介绍</h3><p><img src="/2022/01/07/Linux/16.png"></p>
+<ul>
+<li>第 1 位代表文件类型<ul>
+<li>“-”：普通文件。</li>
+<li>“b”：块设备文件。这是一种特殊设备文件，存储设备都是这种文件，如分区文件/dev/sda1就是这种文件。</li>
+<li>“c”：字符设备文件。这也是特殊设备文件，输入设备一般都是这种文件，如鼠标、键盘等。</li>
+<li>“d”：目录文件。Linux 中一切皆文件，所以目录也是文件的一种。</li>
+<li>“l”：软链接文件。</li>
+<li>“p”：管道符文件。这是一种非常少见的特殊设备文件。</li>
+<li>“s”：套接字文件。这也是一种特殊设备文件，一些服务支持 Socket 访问，就会产生这样的文件。</li>
+</ul>
+</li>
+<li>第 2～4 位代表文件所有者的权限。<ul>
+<li>r：代表 read，是读取权限。</li>
+<li>w：代表 write，是写权限。</li>
+<li>x：代表 execute，是执行权限。<br>如果有字母，则代表拥有对应的权限；如果是“-”，则代表没有对应的权限。</li>
+</ul>
+</li>
+<li>第 5～7 位代表文件所属组的权限，同样拥有“rwx”权限。</li>
+<li>第 8～10 位代表其他人的权限，同样拥有“rwx”权限。</li>
+</ul>
+<h3 id="4-2-基本权限命令"><a href="#4-2-基本权限命令" class="headerlink" title="4.2 基本权限命令"></a>4.2 基本权限命令</h3><h4 id="4-2-1-chmod"><a href="#4-2-1-chmod" class="headerlink" title="4.2.1 chmod"></a>4.2.1 chmod</h4><p>修改文件的权限模式<br><img src="/2022/01/07/Linux/17.png"></p>
+<h3 id="4-3-所有者和所属组"><a href="#4-3-所有者和所属组" class="headerlink" title="4.3 所有者和所属组"></a>4.3 所有者和所属组</h3><h4 id="4-3-1-chown"><a href="#4-3-1-chown" class="headerlink" title="4.3.1 chown"></a>4.3.1 chown</h4><p>修改文件和目录的所有者和所属组</p>
+<p> <img src="/2022/01/07/Linux/19.png"></p>
+<h4 id="4-3-2-chgrp"><a href="#4-3-2-chgrp" class="headerlink" title="4.3.2 chgrp"></a>4.3.2 chgrp</h4><p>修改文件和目录的所属组</p>
+<h3 id="4-4-umask-默认权限"><a href="#4-4-umask-默认权限" class="headerlink" title="4.4 umask 默认权限"></a>4.4 umask 默认权限</h3><h4 id="4-4-1-查看系统的-umask-权限"><a href="#4-4-1-查看系统的-umask-权限" class="headerlink" title="4.4.1 查看系统的 umask 权限"></a>4.4.1 查看系统的 umask 权限</h4><p><img src="/2022/01/07/Linux/20.png"><br><img src="/2022/01/07/Linux/21.png"></p>
+<h2 id="5-帮助命令"><a href="#5-帮助命令" class="headerlink" title="5 帮助命令"></a>5 帮助命令</h2><h3 id="5-1-man"><a href="#5-1-man" class="headerlink" title="5.1 man"></a>5.1 man</h3><p><img src="/2022/01/07/Linux/22.png"></p>
+<h3 id="5-2-info"><a href="#5-2-info" class="headerlink" title="5.2 info"></a>5.2 info</h3><p>帮助信息是一套完整的资料</p>
+<h3 id="5-3-help"><a href="#5-3-help" class="headerlink" title="5.3 help"></a>5.3 help</h3><p>只能获取 Shell 内置命令的帮助。可以使用 type 命令来区分内置命令与外部命令</p>
+<ul>
+<li>所在路径：Shell 内置命令。</li>
+</ul>
+<h3 id="5-4-–help"><a href="#5-4-–help" class="headerlink" title="5.4 –help"></a>5.4 –help</h3><p><img src="/2022/01/07/Linux/23.png"></p>
+<h2 id="6-搜索命令"><a href="#6-搜索命令" class="headerlink" title="6. 搜索命令"></a>6. 搜索命令</h2><h3 id="6-1-whereis"><a href="#6-1-whereis" class="headerlink" title="6.1 whereis"></a>6.1 whereis</h3><p>搜索系统命令的命令</p>
+<h3 id="6-2-which"><a href="#6-2-which" class="headerlink" title="6.2 which"></a>6.2 which</h3><p>列出命令的所在路径</p>
+<h3 id="6-3-locate"><a href="#6-3-locate" class="headerlink" title="6.3 locate"></a>6.3 locate</h3><p>按照文件名搜索文件<br><img src="/2022/01/07/Linux/24.png"></p>
+<h3 id="6-4-find"><a href="#6-4-find" class="headerlink" title="6.4 find"></a>6.4 find</h3><p>在目录中搜索文件</p>
+<h4 id="6-4-1-按照文件名搜索"><a href="#6-4-1-按照文件名搜索" class="headerlink" title="6.4.1 按照文件名搜索"></a>6.4.1 按照文件名搜索</h4><p><img src="/2022/01/07/Linux/25.png"></p>
+<h4 id="6-4-2-按照文件大小搜索"><a href="#6-4-2-按照文件大小搜索" class="headerlink" title="6.4.2 按照文件大小搜索"></a>6.4.2 按照文件大小搜索</h4><p><img src="/2022/01/07/Linux/26.png"></p>
+<h4 id="6-4-3-按照修改时间搜索"><a href="#6-4-3-按照修改时间搜索" class="headerlink" title="6.4.3 按照修改时间搜索"></a>6.4.3 按照修改时间搜索</h4><p><img src="/2022/01/07/Linux/27.png"><br><img src="/2022/01/07/Linux/28.png"></p>
+<h4 id="6-4-4-按照权限搜索"><a href="#6-4-4-按照权限搜索" class="headerlink" title="6.4.4 按照权限搜索"></a>6.4.4 按照权限搜索</h4><p><img src="/2022/01/07/Linux/29.png"></p>
+<h4 id="6-4-5-按照所有者和所属组搜索"><a href="#6-4-5-按照所有者和所属组搜索" class="headerlink" title="6.4.5 按照所有者和所属组搜索"></a>6.4.5 按照所有者和所属组搜索</h4><p><img src="/2022/01/07/Linux/30.png"></p>
+<h4 id="6-4-6-按照文件类型搜索"><a href="#6-4-6-按照文件类型搜索" class="headerlink" title="6.4.6 按照文件类型搜索"></a>6.4.6 按照文件类型搜索</h4><p><img src="/2022/01/07/Linux/31.png"></p>
+<h4 id="6-4-7-逻辑运算符"><a href="#6-4-7-逻辑运算符" class="headerlink" title="6.4.7 逻辑运算符"></a>6.4.7 逻辑运算符</h4><p><img src="/2022/01/07/Linux/32.png"><br><img src="/2022/01/07/Linux/33.png"><br><img src="/2022/01/07/Linux/34.png"></p>
+<h4 id="6-4-8-其他选项"><a href="#6-4-8-其他选项" class="headerlink" title="6.4.8 其他选项"></a>6.4.8 其他选项</h4><p><img src="/2022/01/07/Linux/35.png"></p>
+<h3 id="6-5-grep"><a href="#6-5-grep" class="headerlink" title="6.5 grep"></a>6.5 grep</h3><p>在文件中提取和匹配符合条件的字符串行<br><img src="/2022/01/07/Linux/36.png"><br><img src="/2022/01/07/Linux/37.png"><br>find 命令和 grep 命令的区别：</p>
+<ol>
+<li>find<br> find 命令用于在系统中搜索符合条件的文件名，如果需要模糊查询，则使用通配符进行匹配，通配符是完全匹配（find 命令可以通过-regex 选项，把匹配规则转为正则表达式规则，但是不建议如此）。</li>
+<li>grep<br>grep 命令用于在文件中搜索符合条件的字符串，如果需要模糊查询，则使用正则表达式进行匹配，正则表达式是包含匹配。<br><img src="/2022/01/07/Linux/38.png"><br><img src="/2022/01/07/Linux/39.png"></li>
+</ol>
+<p><strong>示例：</strong><br><strong>查找包含”123”</strong><br><img src="/2022/01/07/Linux/83.png"><br><strong>显示在源文件中的行号</strong><br><img src="/2022/01/07/Linux/84.png"><br><strong>显示不包含”123”的</strong><br><img src="/2022/01/07/Linux/85.png"><br><strong>匹配a0次货任意多次</strong><br><img src="/2022/01/07/Linux/86.png"><br><strong>?的使用，shell认为？是扩展正则，所以必须使用egrep命令</strong><br>无效果<br><img src="/2022/01/07/Linux/87.png"><br>有效果（包含匹配）<br><img src="/2022/01/07/Linux/88.png"><br><img src="/2022/01/07/Linux/89.png"><br><strong>以数字结尾</strong><br><img src="/2022/01/07/Linux/90.png"></p>
+<h2 id="7-管道符"><a href="#7-管道符" class="headerlink" title="7 管道符"></a>7 管道符</h2><p><img src="/2022/01/07/Linux/40.png"><br><img src="/2022/01/07/Linux/41.png"></p>
+<h2 id="8-命令的别名"><a href="#8-命令的别名" class="headerlink" title="8 命令的别名"></a>8 命令的别名</h2><p><img src="/2022/01/07/Linux/42.png"></p>
+<h2 id="9-常用快捷键"><a href="#9-常用快捷键" class="headerlink" title="9. 常用快捷键"></a>9. 常用快捷键</h2><p><img src="/2022/01/07/Linux/43.png"></p>
+<h2 id="10-压缩和解压缩命令"><a href="#10-压缩和解压缩命令" class="headerlink" title="10 压缩和解压缩命令"></a>10 压缩和解压缩命令</h2><h3 id="10-1-“-zip”格式"><a href="#10-1-“-zip”格式" class="headerlink" title="10.1 “.zip”格式"></a>10.1 “.zip”格式</h3><p>压缩文件或目录<br><img src="/2022/01/07/Linux/44.png"><br>列表、测试和提取压缩文件中的文件<br><img src="/2022/01/07/Linux/45.png"></p>
+<h3 id="10-2-“-gz”格式（不会打包）"><a href="#10-2-“-gz”格式（不会打包）" class="headerlink" title="10.2 “.gz”格式（不会打包）"></a>10.2 “.gz”格式（不会打包）</h3><p>压缩文件或目录<br><img src="/2022/01/07/Linux/46.png"><br><img src="/2022/01/07/Linux/47.png"><br>解压缩文件或目录<br><img src="/2022/01/07/Linux/48.png"></p>
+<h3 id="10-3-“-bz2”格式（不能压缩目录）"><a href="#10-3-“-bz2”格式（不能压缩目录）" class="headerlink" title="10.3 “.bz2”格式（不能压缩目录）"></a>10.3 “.bz2”格式（不能压缩目录）</h3><p>.bz2 格式的压缩<br><img src="/2022/01/07/Linux/49.png"><br>.bz2 格式的解压缩<br><img src="/2022/01/07/Linux/50.png"></p>
+<h3 id="10-4-tar（打包不会压缩）"><a href="#10-4-tar（打包不会压缩）" class="headerlink" title="10.4 tar（打包不会压缩）"></a>10.4 tar（打包不会压缩）</h3><p>打包<br><img src="/2022/01/07/Linux/51.png"><br>解打包<br><img src="/2022/01/07/Linux/52.png"><br><img src="/2022/01/07/Linux/53.png"></p>
+<h3 id="10-5-“-tar-gz”和“-tar-bz2”格式"><a href="#10-5-“-tar-gz”和“-tar-bz2”格式" class="headerlink" title="10.5 “.tar.gz”和“.tar.bz2”格式"></a>10.5 “.tar.gz”和“.tar.bz2”格式</h3><p>tar 命令直接打包压缩<br><img src="/2022/01/07/Linux/54.png"></p>
+<h2 id="11-关机和重启命令"><a href="#11-关机和重启命令" class="headerlink" title="11 关机和重启命令"></a>11 关机和重启命令</h2><h3 id="11-1-sync-数据同步"><a href="#11-1-sync-数据同步" class="headerlink" title="11.1 sync 数据同步"></a>11.1 sync 数据同步</h3><p>刷新文件系统缓冲区。</p>
+<h3 id="11-2-shutdown-命令"><a href="#11-2-shutdown-命令" class="headerlink" title="11.2 shutdown 命令"></a>11.2 shutdown 命令</h3><p>关机和重启<br><img src="/2022/01/07/Linux/55.png"></p>
+<h3 id="11-3-reboot-命令"><a href="#11-3-reboot-命令" class="headerlink" title="11.3 reboot 命令"></a>11.3 reboot 命令</h3><p>reboot 命令是安全的<br><img src="/2022/01/07/Linux/56.png"></p>
+<h3 id="11-4-halt，poweroff"><a href="#11-4-halt，poweroff" class="headerlink" title="11.4 halt，poweroff"></a>11.4 halt，poweroff</h3><p>关机命令，直接执行即可。这两个命令不会完整关闭和保存系统的服务，不建议使用。<br><img src="/2022/01/07/Linux/57.png"></p>
+<h3 id="11-5-init"><a href="#11-5-init" class="headerlink" title="11.5 init"></a>11.5 init</h3><p>init 是修改 Linux 运行级别的命令，也可以用于关机和重启。这个命令并不安全，不建议使用<br><img src="/2022/01/07/Linux/58.png"><br><img src="/2022/01/07/Linux/59.png"></p>
+<h2 id="12-常用网络命令"><a href="#12-常用网络命令" class="headerlink" title="12 常用网络命令"></a>12 常用网络命令</h2><h3 id="12-1-配置-IP-地址"><a href="#12-1-配置-IP-地址" class="headerlink" title="12.1 配置 IP 地址"></a>12.1 配置 IP 地址</h3><ol>
+<li>配置 IP 地址有两种方法：</li>
+</ol>
+<ul>
+<li>setup 工具</li>
+<li>vi /etc/sysconfig/network-scripts/ifcfg-eth0</li>
+</ul>
+<ol start="2">
+<li>重启网络服务<br><img src="/2022/01/07/Linux/60.png">  </li>
+<li>虚拟机需要桥接到有线网卡，并重启网络服务</li>
+<li>复制镜像有可能需要重置 UUID（唯一识别符）<br> <img src="/2022/01/07/Linux/61.png">  </li>
+</ol>
+<h3 id="12-2-ifconfig"><a href="#12-2-ifconfig" class="headerlink" title="12.2 ifconfig"></a>12.2 ifconfig</h3><p>配置网络接口，最主要的作用就是查看 IP 地址的信息<br>执行权限：超级用户<br><img src="/2022/01/07/Linux/62.png">  </p>
+<h3 id="12-3-ping"><a href="#12-3-ping" class="headerlink" title="12.3 ping"></a>12.3 ping</h3><p>向网络主机发送 ICMP 请求<br><img src="/2022/01/07/Linux/63.png">  </p>
+<h3 id="12-4-netstat"><a href="#12-4-netstat" class="headerlink" title="12.4 netstat"></a>12.4 netstat</h3><p>输出网络连接、路由表、接口统计、伪装连接和组播成员<br><img src="/2022/01/07/Linux/64.png">  </p>
+<h3 id="12-5-write"><a href="#12-5-write" class="headerlink" title="12.5 write"></a>12.5 write</h3><p>向其他用户发送信息<br><img src="/2022/01/07/Linux/65.png">  </p>
+<h3 id="12-6-wall"><a href="#12-6-wall" class="headerlink" title="12.6 wall"></a>12.6 wall</h3><p>给指定用户发送信息<br><img src="/2022/01/07/Linux/66.png">  </p>
+<h3 id="12-7-mail"><a href="#12-7-mail" class="headerlink" title="12.7 mail"></a>12.7 mail</h3><p>发送和接收电子邮件<br>发送邮件<br><img src="/2022/01/07/Linux/67.png"><br><img src="/2022/01/07/Linux/68.png"><br>接收邮件<br><img src="/2022/01/07/Linux/69.png">  </p>
+<ul>
+<li>headers：列出邮件标题列表，直接输入“h”命令即可。 </li>
+<li>delete：删除指定邮件。比如想要删除第二封邮件，可以输入“d 2”。 </li>
+<li>save：保存邮件。可以把指定邮件保存成文件，如“s 2 /tmp/test.mail”。 </li>
+<li>quit：退出，并把已经操作过的邮件进行保存。比如移除已删除邮件、保存已阅读邮件等。</li>
+<li>exit：退出，但是不保存任何操作</li>
+</ul>
+<h2 id="13-系统痕迹命令"><a href="#13-系统痕迹命令" class="headerlink" title="13 系统痕迹命令"></a>13 系统痕迹命令</h2><h3 id="13-1-w"><a href="#13-1-w" class="headerlink" title="13.1 w"></a>13.1 w</h3><p>显示正在登陆的用户，和他正在做什么。这个命令查看的痕迹日志是/var/run/utmp<br><img src="/2022/01/07/Linux/70.png"><br>第一行信息：</p>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>12:26:46</td>
+<td>系统当前时间</td>
+</tr>
+<tr>
+<td>up 1 day, 13:32</td>
+<td>系统的运行时间，本机已经运行 1 天 13 小时 32 分钟</td>
+</tr>
+<tr>
+<td>2 users</td>
+<td>当前登录了两个用户</td>
+</tr>
+<tr>
+<td>load average: 0.00, 0.00, 0.00</td>
+<td>系统在之前 1 分钟、5 分钟、15 分钟的平均负载。如果 CPU 是单核的，则这个数值</td>
+</tr>
+<tr>
+<td>超过 1 就是高负载；如果 CPU 是四核的，则这个数值超过 4 就是高负载</td>
+<td></td>
+</tr>
+<tr>
+<td>（这个平均负载完全是依据个人经验来进行判断的，一般认为不应该超过服务器 CPU</td>
+<td></td>
+</tr>
+<tr>
+<td>的核数）</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>第二行信息：</p>
+<table>
+<thead>
+<tr>
+<th>内 容</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>USER</td>
+<td>当前登陆的用户</td>
+</tr>
+<tr>
+<td>TTY</td>
+<td>登陆的终端：</td>
+</tr>
+<tr>
+<td>tty1-6：本地字符终端（alt+F1-6 切换）</td>
+<td></td>
+</tr>
+<tr>
+<td>tty7：本地图形终端（ctrl+alt+F7 切换，必须安装启动图形界面）</td>
+<td></td>
+</tr>
+<tr>
+<td>pts/0-255:远程终端</td>
+<td></td>
+</tr>
+<tr>
+<td>FROM</td>
+<td>登陆的 IP 地址，如果是本地终端，则是空</td>
+</tr>
+<tr>
+<td>LOGIN@</td>
+<td>登陆时间</td>
+</tr>
+<tr>
+<td>IDLE</td>
+<td>用户闲置时间</td>
+</tr>
+<tr>
+<td>JCPU</td>
+<td>所有的进程占用的 CPU 时间</td>
+</tr>
+<tr>
+<td>PCPU</td>
+<td>当前进程占用的 CPU 时间</td>
+</tr>
+<tr>
+<td>WHAT</td>
+<td>用户正在进行的操作</td>
+</tr>
+</tbody></table>
+<h3 id="13-2-who"><a href="#13-2-who" class="headerlink" title="13.2 who"></a>13.2 who</h3><p>查看正在登陆的用户，但是显示的内容更加简单，也是查看<br>/var/run/utmp 日志。<br><img src="/2022/01/07/Linux/71.png"> </p>
+<h3 id="13-3-last"><a href="#13-3-last" class="headerlink" title="13.3 last"></a>13.3 last</h3><p>查看系统所有登陆过的用户信息的，包括正在登陆的用户和之前登陆的用户。这个命令查看的是/var/log/wtmp 痕迹日志文件<br><img src="/2022/01/07/Linux/72.png"> </p>
+<h3 id="13-4-lastlog"><a href="#13-4-lastlog" class="headerlink" title="13.4 lastlog"></a>13.4 lastlog</h3><p>查看系统中所有用户最后一次的登陆时间的命令，他查看的日志是/var/log/lastlog<br>文件<br><img src="/2022/01/07/Linux/73.png"> </p>
+<h3 id="13-5-lastb"><a href="#13-5-lastb" class="headerlink" title="13.5 lastb"></a>13.5 lastb</h3><p>查看错误登陆的信息的，查看的是/var/log/btmp 痕迹日志<br><img src="/2022/01/07/Linux/74.png"> </p>
+<h2 id="14-挂载命令"><a href="#14-挂载命令" class="headerlink" title="14 挂载命令"></a>14 挂载命令</h2><h3 id="14-1-mount"><a href="#14-1-mount" class="headerlink" title="14.1 mount"></a>14.1 mount</h3><p><img src="/2022/01/07/Linux/75.png"> </p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>atime/noatime</td>
+<td>更新访问时间/不更新访问时间。访问分区文件时，是否更新文件的访问时</td>
+</tr>
+<tr>
+<td>间，默认为更新</td>
+<td></td>
+</tr>
+<tr>
+<td>async/sync</td>
+<td>异步/同步，默认为异步</td>
+</tr>
+<tr>
+<td>defaults</td>
+<td>定义默认值，相当于 rw,suid,dev,exec,auto,nouser,async 这七个选项</td>
+</tr>
+<tr>
+<td>exec/noexec</td>
+<td>执行/不执行，设定是否允许在文件系统中执行可执行文件，默认是 exec</td>
+</tr>
+<tr>
+<td>允许</td>
+<td></td>
+</tr>
+<tr>
+<td>remount</td>
+<td>重新挂载已经挂载的文件系统，一般用于指定修改特殊权限</td>
+</tr>
+<tr>
+<td>rw/ro</td>
+<td>读写/只读，文件系统挂载时，是否具有读写权限，默认是 rw</td>
+</tr>
+<tr>
+<td>suid/nosuid</td>
+<td>具有/不具有 SUID 权限，设定文件系统是否具有 SUID 和 SGID 的权限，默</td>
+</tr>
+<tr>
+<td>认是具有</td>
+<td></td>
+</tr>
+<tr>
+<td>user/nouser</td>
+<td>允许/不允许普通用户挂载，设定文件系统是否允许普通用户挂载，默认是</td>
+</tr>
+<tr>
+<td>不允许，只有 root 可以挂载分区</td>
+<td></td>
+</tr>
+<tr>
+<td>usrquota</td>
+<td>写入代表文件系统支持用户磁盘配额，默认不支持</td>
+</tr>
+<tr>
+<td>grpquota</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="14-2-光盘挂载"><a href="#14-2-光盘挂载" class="headerlink" title="14.2 光盘挂载"></a>14.2 光盘挂载</h3><p><img src="/2022/01/07/Linux/76.png"> </p>
+<p>14.3 挂载 U 盘<br>U 盘会和硬盘共用设备文件名，所以 U 盘的设备文件名不是固定的，需要手工查询<br><img src="/2022/01/07/Linux/77.png"><br>挂载U盘<br><img src="/2022/01/07/Linux/78.png"><br>如果 U 盘中有中文，会发现中文是乱码。Linux 要想正常显示中文，需要两个条件：</p>
+<ul>
+<li>安装了中文编码和中文字体</li>
+<li>操作终端需要支持中文显示（纯字符终端，是不支持中文编码的）<br>手工指定中文编码<br><img src="/2022/01/07/Linux/79.png"><br>卸载U盘<br><img src="/2022/01/07/Linux/80.png"> </li>
+</ul>
+<h3 id="14-4-挂载-NTFS-分区"><a href="#14-4-挂载-NTFS-分区" class="headerlink" title="14.4 挂载 NTFS 分区"></a>14.4 挂载 NTFS 分区</h3><ol>
+<li>下载 NTFS-3G 插件<br>从网站 <a target="_blank" rel="noopener" href="http://www.tuxera.com/community/ntfs-3g-download/%E4%B8%8B%E8%BD%BD">http://www.tuxera.com/community/ntfs-3g-download/下载</a> NTFS-3G 插件到 Linux服务器上</li>
+<li>安装 NTFS-3G 插件<br><img src="/2022/01/07/Linux/81.png"> </li>
+<li>挂载Windows 的 NTFS 分区<br>注意挂载分区时的文件系统不是 ntfs，而是 ntfs-3g<br><img src="/2022/01/07/Linux/82.png"> </li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'rFeUWk7NpQXiluzcxdQENisf-gzGzoHsz',
+        appKey: 'B4wlcRkF1MrkcQu6RWXSnyN4',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/01/07/Linux/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Linux基础（一）常用命令">
+                        
+                        <span class="card-title">Linux基础（一）常用命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/01/05/MySQLSenior/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="MySQ高级">
+                        
+                        <span class="card-title">MySQ高级</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Helene<br />'
+            + '文章作者: Helene<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="4965675848"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2022</span>
+            
+            <a href="/about" target="_blank">Helene</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">30.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+			
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "23";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+    <script src="/js/FunnyTitle.js"></script>
+</body>
+
+</html>
