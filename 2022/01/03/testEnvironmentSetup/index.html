@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="测试环境搭建, Helene">
-    <meta name="description" content="1. 安装JDK1.1 源码包安装
+    <meta name="description" content="1. 安装JDK1.1 手动安装
 在/usr/local下新建一个java文件夹
 mkdir /usr/local/java
 
@@ -14,7 +14,7 @@ mkdir /usr/local/java
 将jdk源码包放在/usr/local/java中
 
 解压jdk源码包
-tar -zxvf  jdk-8">
+tar -zxvf  jdk-8u">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -441,7 +441,7 @@ tar -zxvf  jdk-8">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1. 安装JDK"></a>1. 安装JDK</h2><h3 id="1-1-源码包安装"><a href="#1-1-源码包安装" class="headerlink" title="1.1 源码包安装"></a>1.1 源码包安装</h3><ol>
+                <h2 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1. 安装JDK"></a>1. 安装JDK</h2><h3 id="1-1-手动安装"><a href="#1-1-手动安装" class="headerlink" title="1.1 手动安装"></a>1.1 手动安装</h3><ol>
 <li><p>在/usr/local下新建一个java文件夹</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> /usr/local/java
 </code></pre>
@@ -503,7 +503,7 @@ rpm -qa <span class="token operator">|</span><span class="token function">grep</
 <li><p><font color="#F44336">当再次启动tomcat时报错：( 待解决   )<br> 找不到jdk与jre的路径<br> <img src="/2022/01/03/testEnvironmentSetup/30.png"><br> 修改路径后只能启动一次** </font></p>
 <h2 id="2-安装mysql"><a href="#2-安装mysql" class="headerlink" title="2. 安装mysql"></a>2. 安装mysql</h2></li>
 </ol>
-<h3 id="2-1-源码包安装"><a href="#2-1-源码包安装" class="headerlink" title="2.1 源码包安装"></a>2.1 源码包安装</h3><ol>
+<h3 id="2-1-手动安装"><a href="#2-1-手动安装" class="headerlink" title="2.1 手动安装"></a>2.1 手动安装</h3><ol>
 <li><p>在/usr/local下新建一个mysql文件夹</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> /usr/local/mysql
 </code></pre>
@@ -612,7 +612,7 @@ mysql> flush privileges;
 <img src="/2022/01/03/testEnvironmentSetup/40.png"></li>
 <li>修改端口<br> 在/etc/my.cnf中添加端口，改成自己想要的。例如3506<br> <img src="/2022/01/03/testEnvironmentSetup/42.png"><br> 报错<br> <img src="/2022/01/03/testEnvironmentSetup/41.png"><br> 解决办法：<br> 关闭 SELinux问题<br> setenforce 0<br> <img src="/2022/01/03/testEnvironmentSetup/43.png"></li>
 </ol>
-<h2 id="3-安装apache"><a href="#3-安装apache" class="headerlink" title="3. 安装apache"></a>3. 安装apache</h2><h3 id="3-1-源码包安装"><a href="#3-1-源码包安装" class="headerlink" title="3.1 源码包安装"></a>3.1 源码包安装</h3><ol>
+<h2 id="3-安装apache"><a href="#3-安装apache" class="headerlink" title="3. 安装apache"></a>3. 安装apache</h2><h3 id="3-1-手动安装"><a href="#3-1-手动安装" class="headerlink" title="3.1 手动安装"></a>3.1 手动安装</h3><ol>
 <li>在/usr/local下新建一个apache文件夹<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> /usr/local/apache
 </code></pre>
  <img src="/2022/01/03/testEnvironmentSetup/4.png"></li>
