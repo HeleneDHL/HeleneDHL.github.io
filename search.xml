@@ -297,6 +297,35 @@
     </entry>
     
     
+    
+    <entry>
+      <title>博客搭建(一)   雏形</title>
+      <link href="/2021/12/28/blogSetUp/"/>
+      <url>/2021/12/28/blogSetUp/</url>
+      
+        <content type="html"><![CDATA[<p>Hexo+Github Pages搭建博客的前期工作。拥有一个Github账号(Github是代码托管平台)。安装Git(一座通向GitHub的桥梁。我们可以通过git把本地项目上传到GitHub，同时也可以通过git从GitHub上取项目到本地。)；安装Hexo(我们的个人博客网站的框架),安装Node.JS</p><h2 id="一、注册一个Github账号"><a href="#一、注册一个Github账号" class="headerlink" title="一、注册一个Github账号"></a>一、注册一个Github账号</h2><p>  点击<a href="https://github.com/">Github</a>访问Github官网，点击Sign up进行注册，在新的页面输入要求的信息即可<br>   <img src="/2021/12/28/blogSetUp/1.png"></p><h2 id="二、安装Git"><a href="#二、安装Git" class="headerlink" title="二、安装Git"></a>二、安装Git</h2><ol><li>点击<a href="https://git-scm.com/downloads">Git官网</a>进入官网，根据自己的电脑环境选择对应的版本。<a href="https://www.cnblogs.com/xueweisuoyong/p/11914045.html">安装教程</a></li><li>按下Win+R输入cmd打开运行窗口，输入<code>git --version </code>测试Git是否安装成功，若出现Git版本信息则安装成功</li><li>配置Git个人信息<ul><li>输入<code>git config --global user.name &quot;name&quot; </code> name=你注册Github时的名字</li><li>输入<code>git config --global user.email  &quot;Email&quot; </code> Email=你注册Github时的邮箱<br><img src="/2021/12/28/blogSetUp/9.png"></li></ul></li></ol><h2 id="三、安装Node-js"><a href="#三、安装Node-js" class="headerlink" title="三、安装Node.js"></a>三、安装Node.js</h2><ol><li>点击<a href="https://nodejs.org/en/download/">nodejs</a>进入官网，按自己电脑的环境选择对应的版本即可。<a href="https://blog.csdn.net/muzidigbig/article/details/80493880">安装教程</a></li><li>按下Win+R输入cmd打开运行窗口，输入<code>node -v</code>，<code>npm -v</code>若出现版本信息则安装成功</li></ol><h2 id="四、安装Hexo"><a href="#四、安装Hexo" class="headerlink" title="四、安装Hexo"></a>四、安装Hexo</h2><ol><li>在你想要存放博客的地方创建一个文件夹，例如F:\Blog</li><li>右键F:\Blog文件夹，点击Git Bash Here</li><li>输入<code>npm install hexo-cli -g</code>安装Hexo<br>   <img src="/2021/12/28/blogSetUp/10.png"></li><li>输入<code>npm install hexo-deployer-git --save </code>安装的Hexo部署到git page的deployer<br>   <img src="/2021/12/28/blogSetUp/11.png"></li></ol><h2 id="五、Hexo初始化配置"><a href="#五、Hexo初始化配置" class="headerlink" title="五、Hexo初始化配置"></a>五、Hexo初始化配置</h2><ol><li>在F:\Blog下新建一个名为Hexo的空文件夹，右键Hexo文件夹，点击Git Bash Here，输入<br><code>hexo init</code></li><li>Hexo文件夹如下所示<br><img src="/2021/12/28/blogSetUp/13.png"></li><li>右键Hexo文件夹，选择Git Bash Here输入<code>hexo g</code>，<code>hexo s</code></li><li>登录 <a href="http://localhost:4000/">http://localhost:4000/</a>，出现下图所示则初始化配置成功<br> <img src="/2021/12/28/blogSetUp/14.png"></li></ol><h2 id="六、创建代码库"><a href="#六、创建代码库" class="headerlink" title="六、创建代码库"></a>六、创建代码库</h2><ol><li>登录Github，点击头像，在下拉列表选择Your repositories进入代码库</li><li>点击右上角的New创建新的代码库<br><img src="/2021/12/28/blogSetUp/2.png"><br><img src="/2021/12/28/blogSetUp/3.png"></li></ol><h2 id="七、配置SSH秘钥"><a href="#七、配置SSH秘钥" class="headerlink" title="七、配置SSH秘钥"></a>七、配置SSH秘钥</h2><ol><li><p>生成SSH秘钥</p><ul><li>在你想要存放博客的地方创建一个文件夹，例如F:\Blog</li><li>右键Blog文件夹，点击Git Bash Here</li><li><code> ssh-keygen -t rsa -C &quot;Email&quot;</code>  Email=你刚才注册Github的邮箱</li><li>之后出现<br><code> Generating public/private rsa key pair.     Enter file in which to save the key (/c/Users/you/.ssh/id_rsa):</code>直接回车</li><li>接下来出现<br> <code>Your identification has been saved in /c/Users/you/.ssh/id_rsa.</code><br>  <code> Your public key has been saved in /c/Users/you/.ssh/id_rsa.pub.</code><br>  <code>The key fingerprint is:</code><br>   <code> The key&#39;s randomart image is:</code> </li></ul></li><li><p>在Github添加秘钥</p><ul><li>登录Github，右键头像，在下拉框选择Settings</li><li>在页面的左侧菜单选择SSH and GPG keys<br>   <img src="/2021/12/28/blogSetUp/4.png"></li><li>选择New SSH key<br>   <img src="/2021/12/28/blogSetUp/5.png"></li><li>粘贴你的秘钥，秘钥在C:\Users\你的电脑名字.ssh\id_rsa.pub，秘钥为该文件的全部内容。该文件是隐藏文件<br>  <img src="/2021/12/28/blogSetUp/6.png"></li><li>测试，输入<code>ssh -T git@github.com</code>之后若显示<br> <img src="/2021/12/28/blogSetUp/7.png"><br> 输入yes即可，若出现下图所示，表示配置成功<br>   <img src="/2021/12/28/blogSetUp/8.png"></li></ul></li></ol><h2 id="八、将Hexo文件更新到Github中"><a href="#八、将Hexo文件更新到Github中" class="headerlink" title="八、将Hexo文件更新到Github中"></a>八、将Hexo文件更新到Github中</h2><ol><li>登录自己的Github，打开自己刚才建立的仓库，复制地址如下图所示<br>   <img src="/2021/12/28/blogSetUp/15.png"></li><li>修改配置信息<ul><li>打开F:\Blog\Hexo文件的_config.xml</li><li>找到如下所示信息，进行修改<br>type: git          repository: 刚才复制的地址     branch: 见图<br><img src="/2021/12/28/blogSetUp/16.png"> <img src="/2021/12/28/blogSetUp/17.png"><br><font color="#F44336">踩过的坑：</font> branch的值与Github不一致，导致上传至Github失败</li></ul></li><li>测试是否可以部署<ul><li>右键F:\Blog\Hexo，点击Git Bash Here</li><li>输入<code>hexo g </code>，<code>hexo s </code>，<code>hexo g -d</code>，</li><li>若出现下面的情况说明deployer没有安装成功，那我们需要输入<code>npm install hexo-   deployer-git --save </code>再次安装，再输入<code>hexo g -d</code>，若没有则跳过此步骤</li><li>在浏览器输入https://你的用户名.github.io，就会出现创建仓库时的readme内容</li></ul></li></ol><hr><p>参考文章<a href="https://itrhx.blog.csdn.net/article/details/82121420">https://itrhx.blog.csdn.net/article/details/82121420</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客搭建 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客搭建 </tag>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Github Pages </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
