@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux基础（三）-权限管理</title>
+      <link href="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"/>
+      <url>/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-ACL-权限"><a href="#1-ACL-权限" class="headerlink" title="1 ACL 权限"></a>1 ACL 权限</h2><h3 id="1-1-ACL-概述"><a href="#1-1-ACL-概述" class="headerlink" title="1.1 ACL 概述"></a>1.1 ACL 概述</h3><p>ACL 是用于解决用户对文件身份不足的问题的<br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/1.png"></p><h3 id="1-2-ACL命令"><a href="#1-2-ACL命令" class="headerlink" title="1.2 ACL命令"></a>1.2 ACL命令</h3><h4 id="1-2-1-给用户设定ACL权限"><a href="#1-2-1-给用户设定ACL权限" class="headerlink" title="1.2.1 给用户设定ACL权限"></a>1.2.1 给用户设定ACL权限</h4><pre class=" language-bash"><code class="language-bash">setfacl -m u:用户名:权限 文件名</code></pre><p><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/7.png"><br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/8.png"></p><h4 id="1-2-2-给用户组设置ACL权限"><a href="#1-2-2-给用户组设置ACL权限" class="headerlink" title="1.2.2 给用户组设置ACL权限"></a>1.2.2 给用户组设置ACL权限</h4><pre class=" language-bash"><code class="language-bash">setfacl -m g:组名：权限 文件名</code></pre><p><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/9.png"><br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/10.png"></p><h4 id="1-2-3-给目录赋予ACL权限"><a href="#1-2-3-给目录赋予ACL权限" class="headerlink" title="1.2.3 给目录赋予ACL权限"></a>1.2.3 给目录赋予ACL权限</h4><pre class=" language-bash"><code class="language-bash">setfacl -m u:cc:rx -R soft/   -R递归setfacl -m d:u:aa:rwx -R /test  d:设置默认权限</code></pre><p><font color="red">注意：</font>如果给目录赋予 acl 权限，两条命令都要输入<br>递归与默认的区别：<br>setfacl -m u:cc:rx -R soft/ 只对已经存在的文件生效<br>setfacl -m d:u:aa:rwx -R /test 只对以后新建的文件生效</p><h4 id="1-2-4-删除ACL权限"><a href="#1-2-4-删除ACL权限" class="headerlink" title="1.2.4 删除ACL权限"></a>1.2.4 删除ACL权限</h4><pre class=" language-bash"><code class="language-bash"> setfacl -x u:st /project/    <span class="token comment" spellcheck="true">#删除指定用户和用户组的 ACL 权限</span> setfacl -b project/        <span class="token comment" spellcheck="true">#会删除文件的所有的 ACL 权限 </span></code></pre><h4 id="1-2-5-设置最大有效权限-mask"><a href="#1-2-5-设置最大有效权限-mask" class="headerlink" title="1.2.5 设置最大有效权限 mask"></a>1.2.5 设置最大有效权限 mask</h4><pre class=" language-bash"><code class="language-bash">setfacl -m m:权限 project/</code></pre><p><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/11.png"></p><h2 id="2-sudo-授权"><a href="#2-sudo-授权" class="headerlink" title="2 sudo 授权"></a>2 sudo 授权</h2><h3 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h3><p>给普通用户赋予部分管理员权限<br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/2.png"></p><ol><li>用户名/组名：代表 root 给哪个用户或用户组赋予命令，注意组名前加“%”</li><li>用户可以用指定的命令管理指定 IP 地址的服务器。如果写 ALL，代表可以管理任何主机，如果写固定 IP，代表用户可以管理指定的服务器。</li><li>可使用身份：就是把来源用户切换成什么身份使用，（ALL）代表可以切换成任意身份。这个字段可以省略</li><li>授权命令：代表 root 把什么命令授权给普通用户。</li></ol><h3 id="2-2-范列"><a href="#2-2-范列" class="headerlink" title="2.2 范列"></a>2.2 范列</h3><ol><li>visudo进入添加权限命令配置页面<br> <img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/3.png"></li><li>添加授权信息<br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/4.png"></li><li>sudo -l查看可以执行的命令<br> <img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/5.png"></li><li>sudo 命令   执行命令<br> <img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/6.png"></li></ol><h2 id="3-文件特殊权限"><a href="#3-文件特殊权限" class="headerlink" title="3 文件特殊权限"></a>3 文件特殊权限</h2><h3 id="3-1-SetUID"><a href="#3-1-SetUID" class="headerlink" title="3.1 SetUID"></a>3.1 SetUID</h3><ol><li>只有可以执行的二进制程序才能设定 SUID 权限</li><li>命令执行者要对该程序拥有 x（执行）权限</li><li>命令执行者在执行该程序时获得该程序文件属主的身份（</li><li>SetUID 权限只在该程序执行过程中有效，也就是说身份改变只在程序执行过程中有效<br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/12.png"><br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/13.png"></li></ol><h3 id="3-2-SetGID"><a href="#3-2-SetGID" class="headerlink" title="3.2 SetGID"></a>3.2 SetGID</h3><h4 id="3-2-1-针对文件"><a href="#3-2-1-针对文件" class="headerlink" title="3.2.1 针对文件"></a>3.2.1 针对文件</h4><ol><li>只有可执行的二进制程序才能设置 SGID 权限</li><li>命令执行者要对该程序拥有 x（执行）权限</li><li>命令执行在执行程序的时候，组身份升级为该程序文件的属组</li><li>SetGID 权限只在该程序执行过程中有效，组身份改变只在程序执行过程中有效<br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/14.png"><br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/15.png"></li></ol><h4 id="3-2-2-针对目录"><a href="#3-2-2-针对目录" class="headerlink" title="3.2.2 针对目录"></a>3.2.2 针对目录</h4><ol><li>普通用户必须对此目录拥有 r 和 x 权限，才能进入此目录</li><li>普通用户在此目录中的有效组会变成此目录的属组</li><li>若普通用户对此目录拥有 w 权限时，新建的文件的默认属组是这个目录的属组<br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/16.png"><br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/17.png"></li></ol><h3 id="3-3-Sticky-BIT"><a href="#3-3-Sticky-BIT" class="headerlink" title="3.3 Sticky BIT"></a>3.3 Sticky BIT</h3><ol><li>粘着位目前只对目录有效</li><li>普通用户对该目录拥有 w 和 x 权限，即普通用户可以在此目录拥有写入权限</li><li>一但赋予了粘着位，除了 root 可以删除所有文件，普通用户就算拥有 w 权限，也只能删除自己建立的文件，不能删除其他用户建立的文件。<br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/18.png"><br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/19.png"></li></ol><h2 id="4-文件系统属性-chattr-权限"><a href="#4-文件系统属性-chattr-权限" class="headerlink" title="4 文件系统属性 chattr 权限"></a>4 文件系统属性 chattr 权限</h2><h3 id="4-1-命令格式"><a href="#4-1-命令格式" class="headerlink" title="4.1 命令格式"></a>4.1 命令格式</h3><p><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/20.png"><br>4.2 查看文件系统属性 lsattr<br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/21.png"></p><h3 id="4-3-示列"><a href="#4-3-示列" class="headerlink" title="4.3 示列"></a>4.3 示列</h3><p>给文件赋予i属性<br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/22.png"><br>给目录赋予 i 属性<br><img src="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/23.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>selenium</title>
       <link href="/2022/01/19/selenium/"/>
       <url>/2022/01/19/selenium/</url>
