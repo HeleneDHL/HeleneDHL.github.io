@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="selenium, Helene">
-    <meta name="description" content="1 python+selenium自动化测试环境搭建1.1 安装Pythonpython下载地址：python安装教程：1.2 安装Pycharmpycharm下载地址：enter description here1.3 安装Seleniu">
+    <meta name="description" content="1 python+selenium自动化测试环境搭建1.1 安装Pythonpython下载地址：https://www.python.org/downloads/python安装教程：http://c.biancheng.net/view">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -417,7 +417,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.5k
                 </div>
                 
 
@@ -444,11 +444,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>1 python+selenium自动化测试环境搭建<br>1.1 安装Python<br>python下载地址：<a target="_blank" rel="noopener" href="https://www.python.org/downloads/"></a><br>python安装教程：<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/4161.html"></a><br>1.2 安装Pycharm<br>pycharm下载地址：<a target="_blank" rel="noopener" href="https://download.jetbrains.com/python/pycharm-community-2017.3.2.exe">enter description here</a><br>1.3 安装Selenium<br>cmd下执行</p>
+                <h2 id="1-python-selenium自动化测试环境搭建"><a href="#1-python-selenium自动化测试环境搭建" class="headerlink" title="1 python+selenium自动化测试环境搭建"></a>1 python+selenium自动化测试环境搭建</h2><h3 id="1-1-安装Python"><a href="#1-1-安装Python" class="headerlink" title="1.1 安装Python"></a>1.1 安装Python</h3><p>python下载地址：<a target="_blank" rel="noopener" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a><br>python安装教程：<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/4161.html">http://c.biancheng.net/view/4161.html</a></p>
+<h3 id="1-2-安装Pycharm"><a href="#1-2-安装Pycharm" class="headerlink" title="1.2 安装Pycharm"></a>1.2 安装Pycharm</h3><p>pycharm下载地址：<a target="_blank" rel="noopener" href="https://download.jetbrains.com/python/pycharm-community-2017.3.2.exe">https://download.jetbrains.com/python/pycharm-community-2017.3.2.exe</a></p>
+<h3 id="1-3-安装Selenium"><a href="#1-3-安装Selenium" class="headerlink" title="1.3 安装Selenium"></a>1.3 安装Selenium</h3><p>cmd下执行</p>
 <pre class=" language-bash"><code class="language-bash">pip <span class="token function">install</span> selenium<span class="token operator">==</span>3.14.1 -i https://pypi.tuna.tsinghua.edu.cn/simple
 </code></pre>
-<p>1.4 浏览器<br>1.4.1 Firefox<br>Firefox下载地址：<a target="_blank" rel="noopener" href="https://ftp.mozilla.org/pub/firefox/releases/"></a><br>geckodriver下载地址：<a target="_blank" rel="noopener" href="https://github.com/mozilla/geckodriver/releases"></a><br>1.4.2 Chrome<br>chromeriver下载地址：<a target="_blank" rel="noopener" href="http://chromedriver.storage.googleapis.com/index.html"></a></p>
-<p>2 selenium基础知识</p>
+<h3 id="1-4-浏览器"><a href="#1-4-浏览器" class="headerlink" title="1.4 浏览器"></a>1.4 浏览器</h3><h4 id="1-4-1-Firefox"><a href="#1-4-1-Firefox" class="headerlink" title="1.4.1 Firefox"></a>1.4.1 Firefox</h4><p>Firefox下载地址：<a target="_blank" rel="noopener" href="https://ftp.mozilla.org/pub/firefox/releases/">https://ftp.mozilla.org/pub/firefox/releases/</a><br>geckodriver下载地址：<a target="_blank" rel="noopener" href="https://github.com/mozilla/geckodriver/releases">https://github.com/mozilla/geckodriver/releases  </a><br>下载geckodriver后需要把geckodriver.exe放到python的可安装路径下或者把geckodriver.exe路径添加到环境变量path中。</p>
+<h4 id="1-4-2-Chrome"><a href="#1-4-2-Chrome" class="headerlink" title="1.4.2 Chrome"></a>1.4.2 Chrome</h4><p>chromeriver下载地址：<a target="_blank" rel="noopener" href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></p>
 <h2 id="3-seleniumAPI"><a href="#3-seleniumAPI" class="headerlink" title="3 seleniumAPI"></a>3 seleniumAPI</h2><h3 id="3-1-8大定位方式"><a href="#3-1-8大定位方式" class="headerlink" title="3.1 8大定位方式"></a>3.1 8大定位方式</h3><h4 id="3-1-1-id"><a href="#3-1-1-id" class="headerlink" title="3.1.1 id"></a>3.1.1 id</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
 
 driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
