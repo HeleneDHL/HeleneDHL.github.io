@@ -1,0 +1,1759 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Linux-系统管理, Helene">
+    <meta name="description" content="1 进程管理1.1 进程的查看1.1.1 ps命令ps 参数
+ a： 显示一个终端的所有进程，除了会话引线
+ u： 显示进程的归属用户及内存的使用情况
+ x： 显示没有控制终端的进程
+-l： 长格式显示。显示更加详细的信息
+-e： 显示所有">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Linux-系统管理 | Helene</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Helene</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Helene</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Linux-系统管理</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-02-11
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    21 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="1-进程管理"><a href="#1-进程管理" class="headerlink" title="1 进程管理"></a>1 进程管理</h2><h3 id="1-1-进程的查看"><a href="#1-1-进程的查看" class="headerlink" title="1.1 进程的查看"></a>1.1 进程的查看</h3><h4 id="1-1-1-ps命令"><a href="#1-1-1-ps命令" class="headerlink" title="1.1.1 ps命令"></a>1.1.1 ps命令</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">ps</span> 参数
+ a： 显示一个终端的所有进程，除了会话引线
+ u： 显示进程的归属用户及内存的使用情况
+ x： 显示没有控制终端的进程
+-l： 长格式显示。显示更加详细的信息
+-e： 显示所有进程，和-A 作用一致
+</code></pre>
+<p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/1.png"></p>
+<ul>
+<li>USER：该进程是由哪个用户产生的</li>
+<li>PID：进程的 ID 号</li>
+<li>%CPU：该进程占用 CPU 资源的百分比，占用越高，进程越耗费资源</li>
+<li>%MEM：该进程占用物理内存的百分比，占用越高，进程越耗费资源</li>
+<li>VSZ：该进程占用虚拟内存的大小，单位 KB</li>
+<li>RSS：该进程占用实际物理内存的大小，单位 KB</li>
+<li>TTY：该进程是在哪个终端中运行的。其中 tty1-tty7 代表本地控制台终端（可以通过<br>alt+F1-F7 键切换不同的终端），tty1-tty6 是本地的字符界面终端，tty7 是图形             终端。pts/0-255 代表虚拟终端，一般是远程连接的终端，第一个远程连接占用             的是pts/0 终端，第二个远程连接占用 pts/1，依次增长。</li>
+<li>STAT：进程状态。<ul>
+<li>D：不可被唤醒的睡眠状态，通常用于 I/O 情况</li>
+<li>R：该进程正在运行</li>
+<li>S：该进程在睡眠状态，可被唤醒</li>
+<li>T：停止状态，可能是在后台暂停或进程在除错状态</li>
+<li>W：内存交互状态（从 2.6 内核开始无效）</li>
+<li>X：死掉的进程（应该不会出现）</li>
+<li>Z：僵尸进程。进程已经终止，但是部分程序还在内存当中。</li>
+<li>&lt;：高优先级（以下状态在 BSD 格式当中出现）</li>
+<li>N：低优先级</li>
+<li>L：被锁入内存</li>
+<li>s：包含子进程</li>
+<li>l：多线程（小写 L）</li>
+<li>+：位于后台</li>
+</ul>
+</li>
+<li>START：该进程的启动时间</li>
+<li>TIME：该进程占用 CPU 的运算时间，注意不是系统时间</li>
+<li>COMMAND：产生此进程的命令名<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/2.png"></li>
+<li>F：进程标志，说明进程的权限<ul>
+<li>1：进程可以复制，但是不能执行</li>
+<li>4：进程使用超级用户权限</li>
+</ul>
+</li>
+<li>S：进程状态</li>
+<li>UID：进程是哪个 UID 用户调用运行的</li>
+<li>PID：进程的 ID 号</li>
+<li>PPID：父进程的 ID 号</li>
+<li>C：该进程的 CPU 使用率，单位是百分比</li>
+<li>PRI：进程的优先级，数值越小该进程优先级越高，越快被 CPU 执行</li>
+<li>NI：进程的优先级，也是数值越小越早被执行</li>
+<li>ADDR：该进程在内存的哪个位置</li>
+<li>SZ：该进程占用多大内存</li>
+<li>WCHAN：该进程是否运行。“-”代表正在运行</li>
+<li>TTY：该进程由哪个终端产生</li>
+<li>TIME：该进程占用 CPU 的运算时间，注意不是系统时间</li>
+<li>CMD：产生此进程的命令名</li>
+</ul>
+<h4 id="1-1-2-top命令"><a href="#1-1-2-top命令" class="headerlink" title="1.1.2 top命令"></a>1.1.2 top命令</h4><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/3.png"><br>top 命令的输出内容是动态的，默认每 3 秒刷新一次。命令的输出主要分为两大部分： </p>
+<ul>
+<li>第一部分是前五行，显示的是整个系统的资源使用状况，我们就是通过这些输出判断服务器的健康状态；</li>
+<li>第二部分从第六行开始，显示的是系统中进程的信息<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/4.png"><br>第一行信息为任务队列信息，<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/5.png"><br>第二行为进程信息<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/6.png"><br>第三行为 CPU 信息<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/7.png"><br>第四行为物理内存信息<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/8.png"><br>第五行为交换分区（swap）信息<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/9.png"><br>第二部分输出，主要是系统进程信息。这部分和 ps 命令的输出比较类似，只是如果在终端中执行 top 命令不能看到所有的进程，而只能看到占比靠前的进程。</li>
+<li>PID：进程 ID</li>
+<li>USER：该进程所属的用户</li>
+<li>PR：优先级，数值越小优先级越高</li>
+<li>NI：优先级，数值越小优先级越高</li>
+<li>VIRT：该进程使用的虚拟内存的大小，单位 KB</li>
+<li>RES：该进程使用的物理内存的大小，单位 KB</li>
+<li>SHR：共享内存大小，单位 KB</li>
+<li>S：进程状态</li>
+<li>%CPU：该进程占用 CPU 的百分比</li>
+<li>%MEM：该进程占用内存的百分比</li>
+<li>TIME+：该进程总共占用的 CPU 时间</li>
+<li>COMMAND：进程的命令名</li>
+</ul>
+<p><strong>只查看PID为7的进程</strong></p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">top</span> -p 7
+</code></pre>
+<p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/10.png"></p>
+<p>如果在操作终端执行 top 命令，并不能看到系统中所有的进程，默认看到的只是 CPU 占比靠前的进程。如果我们想要看到所有的进程可以把 top 命令的结果重定向到文件当中即可。<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/11.png"></p>
+<h4 id="1-1-3-pstree-命令"><a href="#1-1-3-pstree-命令" class="headerlink" title="1.1.3 pstree 命令"></a>1.1.3 pstree 命令</h4><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/12.png"></p>
+<h3 id="1-2-进程管理"><a href="#1-2-进程管理" class="headerlink" title="1.2 进程管理"></a>1.2 进程管理</h3><h4 id="1-2-1-kill命令信号"><a href="#1-2-1-kill命令信号" class="headerlink" title="1.2.1 kill命令信号"></a>1.2.1 kill命令信号</h4><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/14.png"></p>
+<table>
+<thead>
+<tr>
+<th>信号代号</th>
+<th>信号名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>SIGHUP</td>
+<td>该信号让进程立即关闭，然后重新读取配置文件之后重启。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SIGINT</td>
+<td>程序终止信号，用于终止前台进程。相当于输出 ctrl+c 快捷键。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>SIGFPE</td>
+<td>在发生致命的算术运算错误时发出. 不仅包括浮点运算错误, 还包括溢出及除数为 0 等其它所有的算术的错误。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>SIGKILL</td>
+<td>用来立即结束程序的运行. 本信号不能被阻塞、处理和忽略。一般用于强制终止进程。</td>
+</tr>
+<tr>
+<td>14</td>
+<td>SIGALRM</td>
+<td>时钟定时信号, 计算的是实际的时间或时钟时间. alarm 函数使用该信号</td>
+</tr>
+<tr>
+<td>15</td>
+<td>SIGTERM</td>
+<td>正常结束进程的信号，kill 命令的默认信号。有时如果进程已经发生问题，这个信号是无法正常终止进程的，我们才会尝试SIGKILL 信号，也就是信号 9。</td>
+</tr>
+<tr>
+<td>18</td>
+<td>SIGCONT</td>
+<td>该信号可以让暂停的进程恢复执行，本信号不能被阻断。</td>
+</tr>
+<tr>
+<td>19</td>
+<td>SIGSTOP</td>
+<td>该信号可以暂停前台进程，相当于输入 ctrl+z 快捷键。本信号不能被阻断。</td>
+</tr>
+</tbody></table>
+<h4 id="1-2-2-kill命令"><a href="#1-2-2-kill命令" class="headerlink" title="1.2.2 kill命令"></a>1.2.2 kill命令</h4><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/13.png"><br>使用数字1重新启动mysql<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/15.png"><br>使用数字19暂停mysql<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/16.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/17.png"></p>
+<h4 id="1-2-3-killall-命令"><a href="#1-2-3-killall-命令" class="headerlink" title="1.2.3 killall 命令"></a>1.2.3 killall 命令</h4><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/18.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/19.png"></p>
+<h4 id="1-2-4-pkill-命令"><a href="#1-2-4-pkill-命令" class="headerlink" title="1.2.4 pkill 命令"></a>1.2.4 pkill 命令</h4><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/22.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/21.png"></p>
+<h2 id="2-工作管理"><a href="#2-工作管理" class="headerlink" title="2 工作管理"></a>2 工作管理</h2><h3 id="2-1-工作管理简介"><a href="#2-1-工作管理简介" class="headerlink" title="2.1 工作管理简介"></a>2.1 工作管理简介</h3><ol>
+<li>前台是指当前可以操控和执行命令的这个操作环境，后台是指工作可以自行运行，但是不能直接用 ctrl+c 来终止它，只能使用 fg/bg 来调用工作；</li>
+<li>当前的登录终端，只能管理当前终端的工作，而不能管理其他登录终端的工作。如 tty1 登录的终端是不能管理 tty2 终端中的工作的；</li>
+<li>放入后台的命令必须可以持续运行一段时间，这样我们才能扑捉和操作这个工作。如果把 ls命令放入后台执行，它很快就会执行完成，我们很难操作它。</li>
+<li>放入后台执行的命令不能和前台用户有交互或需要前台输入，否则放入后台只能暂停，而不能执行。比如 vi 命令放入后台只能暂停，而不能执行，因为 vi 需要前台输入信息。top 命令也不能放入后台执行，而只能放入后台暂停，因为 top 命令需要和前台有交互。</li>
+</ol>
+<h3 id="2-2-如何把命令放入后台"><a href="#2-2-如何把命令放入后台" class="headerlink" title="2.2 如何把命令放入后台"></a>2.2 如何把命令放入后台</h3><h4 id="2-2-1-在命令后面加入“空格-amp-”，把命令放入后台执行"><a href="#2-2-1-在命令后面加入“空格-amp-”，把命令放入后台执行" class="headerlink" title="2.2.1 在命令后面加入“空格&amp;”，把命令放入后台执行"></a>2.2.1 在命令后面加入“空格&amp;”，把命令放入后台执行</h4><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/23.png"><br>[工作号] 进程号<br>find 命令放入后台执行，每个后台命令会分配一个工作号，命令既然可以执行，就会有进程产生，所以也会有进程号。<br>[1]+：+号代表这个任务是最近一个被放入后台的工作<br>Done：证明后台这个任务已经完成了，命令如果有执行结果的话，也会显示到操作终端上</p>
+<h4 id="2-2-2-在命令执行过程中按-ctrl-z-快捷键，命令在后台是暂停状态"><a href="#2-2-2-在命令执行过程中按-ctrl-z-快捷键，命令在后台是暂停状态" class="headerlink" title="2.2.2 在命令执行过程中按 ctrl+z 快捷键，命令在后台是暂停状态"></a>2.2.2 在命令执行过程中按 ctrl+z 快捷键，命令在后台是暂停状态</h4><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/24.png"></p>
+<h3 id="2-3-后台命令管理"><a href="#2-3-后台命令管理" class="headerlink" title="2.3 后台命令管理"></a>2.3 后台命令管理</h3><h4 id="2-3-1-查看后台的工作"><a href="#2-3-1-查看后台的工作" class="headerlink" title="2.3.1 查看后台的工作"></a>2.3.1 查看后台的工作</h4><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/25.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/26.png"></p>
+<h4 id="2-3-2-将后台暂停的工作恢复到前台执行"><a href="#2-3-2-将后台暂停的工作恢复到前台执行" class="headerlink" title="2.3.2 将后台暂停的工作恢复到前台执行"></a>2.3.2 将后台暂停的工作恢复到前台执行</h4><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/27.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/28.png"></p>
+<h4 id="2-3-3-把后台暂停的工作恢复到后台执行"><a href="#2-3-3-把后台暂停的工作恢复到后台执行" class="headerlink" title="2.3.3 把后台暂停的工作恢复到后台执行"></a>2.3.3 把后台暂停的工作恢复到后台执行</h4><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/29.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/30.png"></p>
+<h4 id="2-3-4-后台命令脱离登录终端运行"><a href="#2-3-4-后台命令脱离登录终端运行" class="headerlink" title="2.3.4 后台命令脱离登录终端运行"></a>2.3.4 后台命令脱离登录终端运行</h4><p>我们已经知道把命令放入后台，只能在当前登录终端执行。那如果我是远程管理的服务器，在远程终端中执行了后台命令，这时我退出登录，这个后台命令还能继续执行吗？当然是不行的，这个后台命令会被终止。但是我们确实需要在远程终端中执行某些后台命令，该如何执行呢？</p>
+<ol>
+<li>第一种方法是把需要后台执行的命令加入/etc/rc.local 文件，让系统在启动时执行这个后台程序。这种方法的问题是，服务器时不能随便重启的，万一有临时后台任务，就不能执行。</li>
+<li>第二种方法是使用系统定时任务，让系统在指定的时间执行某个后台命令。这样放入后台的命令与终端无关，是不依赖登录终端的。</li>
+<li>最后一种方法是使用 nohup 命令。nohup 命令的作用就是让后台工作在离开操作终端时，也能够正确的在后台执行。</li>
+</ol>
+<p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/32.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/31.png"></p>
+<h2 id="3-系统资源查看"><a href="#3-系统资源查看" class="headerlink" title="3 系统资源查看"></a>3 系统资源查看</h2><h3 id="3-1-vmstat-命令监控系统资源"><a href="#3-1-vmstat-命令监控系统资源" class="headerlink" title="3.1 vmstat 命令监控系统资源"></a>3.1 vmstat 命令监控系统资源</h3><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/33.png"></p>
+<ul>
+<li>procs：进程信息字段：<ul>
+<li>r：等待运行的进程数，数量越大，系统越繁忙。</li>
+<li>b：不可被唤醒的进程数量，数量越大，系统月繁忙。</li>
+</ul>
+</li>
+<li>memory：内存信息字段：<ul>
+<li>swpd：虚拟内存的使用情况，单位 KB。</li>
+<li>free：空闲的内存容量，单位 KB。</li>
+<li>buff：缓冲的内存容量，单位 KB。</li>
+<li>cache：缓存的内存容量，单位 KB。</li>
+</ul>
+</li>
+<li>swap：交换分区的信息字段：<ul>
+<li>si：从磁盘中交换到内存中数据的数量，单位 KB。</li>
+<li>so：从内存中交换到磁盘中数据的数量，单位 KB。此两个数越大，证明数据需要经常在磁盘和内存之间交换，系统性能越差。</li>
+</ul>
+</li>
+<li>io：磁盘读写信息字段：<ul>
+<li>bi：从块设备读入数据的总量，单位是块。</li>
+<li>bo：写到块设备的数据的总量，单位是块。此两个数越大，代表系统的 I/O 越繁忙。</li>
+</ul>
+</li>
+<li>system：系统信息字段：<ul>
+<li>in：每秒被中断的进程次数。</li>
+<li>cs：每秒钟进行的事件切换次数。此两个数越大，代表系统与接口设备的通信非常繁忙。</li>
+</ul>
+</li>
+<li>CPU：CPU 信息字段：<ul>
+<li>us：非内核进程消耗 CPU 运算时间的百分比。</li>
+<li>sy：内核进程消耗 CPU 运算时间的百分比。</li>
+<li>id：空闲 CPU 的百分比。</li>
+<li>wa：等待 I/O 所消耗的 CPU 百分比。</li>
+<li>st：被虚拟机所盗用的 CPU 占比。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-dmesg-显示开机时内核检测信息"><a href="#3-2-dmesg-显示开机时内核检测信息" class="headerlink" title="3.2 dmesg 显示开机时内核检测信息"></a>3.2 dmesg 显示开机时内核检测信息</h3><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/34.png"></p>
+<h3 id="3-3-free-命令查看内存使用状态"><a href="#3-3-free-命令查看内存使用状态" class="headerlink" title="3.3 free 命令查看内存使用状态"></a>3.3 free 命令查看内存使用状态</h3><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/35.png"></p>
+<ul>
+<li>第一行：total 是总内存数，used 是已经使用的内存数，free 是空闲的内存数，shared 是多个进程共享的内存总数，buffers 是缓冲内存数，cached 是缓存内存数。默认单位是 KB。</li>
+<li>第二行：-/buffers/cache 的内存数，相当于第一行的 used-buffers-cached。+/buffers/cache的内存数，相当于第一行的 free+buffers+cached。</li>
+<li>第三行：total 是 swap 的总数；used 是已经使用的 swap 数，free 是空闲的 swap 数。默认单位是 KB。</li>
+</ul>
+<h3 id="3-4-查看-CPU-信息"><a href="#3-4-查看-CPU-信息" class="headerlink" title="3.4 查看 CPU 信息"></a>3.4 查看 CPU 信息</h3><p>CPU 的主要信息保存在/proc/cpuinfo 这个文件当中，我们只要查看这个文件，就可以知道 cpu的相关信息。<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/36.png"></p>
+<h3 id="3-5-查看本机登陆用户信息"><a href="#3-5-查看本机登陆用户信息" class="headerlink" title="3.5 查看本机登陆用户信息"></a>3.5 查看本机登陆用户信息</h3><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/37.png"></p>
+<ul>
+<li>第一行其实和 top 命令的第一行非常类似，主要显示了系统当前时间，开机多久（up），有多少用户登陆（users），1 分钟、5 分钟、15 分钟前的平均负载（load average）。</li>
+<li>第二行是项目的说明，第三行开始每行代表一个用户。这些项目是：<ul>
+<li>USER：登陆的用户名；</li>
+<li>TTY：登陆终端；</li>
+<li>FROM：从哪个 IP 地址登陆；</li>
+<li>LOGIN@：登陆时间；</li>
+<li>IDLE：用户闲置时间；</li>
+<li>JCPU：指的是和该终端连接的所有进程占用的 CPU 运算时间。这个时间里并不包括过去的后台作业时间，但却包括当前正在运行的后台作业所占用的时间；</li>
+<li>PCPU：是指当前进程所占用的 CPU 运算时间；</li>
+<li>WHAT：当前正在运行的命令。</li>
+</ul>
+</li>
+</ul>
+<p>who 命令比 w 命令稍微简单一点，也可以用来查看系统中已经登录的用户<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/38.png"></p>
+<h3 id="3-6-uptime-命令"><a href="#3-6-uptime-命令" class="headerlink" title="3.6 uptime 命令"></a>3.6 uptime 命令</h3><p>uptime 命令的作用就是显示系统的启动时间和平均负载，也就是 top 命令的第一行<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/39.png"></p>
+<h3 id="3-7-查看系统与内核相关信息"><a href="#3-7-查看系统与内核相关信息" class="headerlink" title="3.7 查看系统与内核相关信息"></a>3.7 查看系统与内核相关信息</h3><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/40.png"></p>
+<p>判断当前系统的位数，可以通过 file 命令来判断系统文件<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/41.png"></p>
+<p>查询当前 Linux 系统的发行版本<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/42.png"></p>
+<h2 id="4-系统定时任务"><a href="#4-系统定时任务" class="headerlink" title="4 系统定时任务"></a>4 系统定时任务</h2><h3 id="4-1-at-一次性执行定时任务"><a href="#4-1-at-一次性执行定时任务" class="headerlink" title="4.1 at 一次性执行定时任务"></a>4.1 at 一次性执行定时任务</h3><h4 id="4-1-1-at-服务管理与访问控制"><a href="#4-1-1-at-服务管理与访问控制" class="headerlink" title="4.1.1 at 服务管理与访问控制"></a>4.1.1 at 服务管理与访问控制</h4><p>at 命令要想正确执行，需要 atd 服务的支持。atd 服务是独立的服务，所以启动的命令是：<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/43.png"><br>如果想要让 atd 服务开机时自动启动，可以使用如下命令：<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/44.png"><br>atd 服务启动之后，at 命令才可以正常使用，不过我们还要学习下 at 命令的访问控制。这里的访问控制指的是允许哪些用户使用 at 命令设定定时任务，或者不允许哪些用户使用 at 命令。以想象成为设定黑名单或设定白名单，这样更容易理解。<br>at 的访问控制是依靠/etc/at.allow 文件（白名单）和/etc/at.deny 文件（黑名单）这两个文件来实现的，具体规则如下：</p>
+<ul>
+<li>如果系统中有/etc/at.allow 文件，那么只有写入/etc/at.allow 文件（白名单）中的用户<br>可以使用 at 命令，其他用户不能使用 at 命令（/etc/at.deny 文件会被忽略，也就是说   同一个用户既写入/etc/at.allow 文件，也写入/etc/at.deny 文件，那么这个用户是可以使用 at命令的，因为/etc/at.allow 文件优先级更高。）。</li>
+<li>如果系统中没有/etc/at.allow 文件，只有/etc/at.deny 文件，那么写入/etc/at.deny 文件<br>（黑名单）中的用户不能使用 at 命令，其他用户可以使用 at 命令。不过这个文件对 root用户不生效。</li>
+<li>如果系统中这两个文件都不存在，那么只有 root 用户可以使用 at 命令。系统中默认时只有/etc/at.deny 文件，而且这个文件是空的，这样的话系统中所有的用户都可以使用 at 命令。不过如果我们打算控制用户的 at 命令权限，把用户写入/etc/at.deny 文件即可<br>/etc/at.allow 文件的权限更高，如果/etc/at.allow 文件存在，则/etc/at.deny 文件失效。<br>/etc/at.allow 管理行为更加严格，因为只有写入这个文件的用户才能使用 at 命令，如果需要禁用at 命令的用户较多，则可以把少数用户写入这个文件。/etc/at.deny 文件的管理较为松散，如果允许使用 at 命令的用户较多，则可以把禁用的用户写入这个文件。不过这两个文件都不能对 root 用户生效。</li>
+</ul>
+<h4 id="4-1-2-at-命令"><a href="#4-1-2-at-命令" class="headerlink" title="4.1.2 at 命令"></a>4.1.2 at 命令</h4><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/45.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/46.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/47.png"></p>
+<h4 id="4-1-3-其他-at-管理命令"><a href="#4-1-3-其他-at-管理命令" class="headerlink" title="4.1.3 其他 at 管理命令"></a>4.1.3 其他 at 管理命令</h4><p><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/48.png"></p>
+<h3 id="4-2-crontab-循环执行定时任务"><a href="#4-2-crontab-循环执行定时任务" class="headerlink" title="4.2 crontab 循环执行定时任务"></a>4.2 crontab 循环执行定时任务</h3><h4 id="4-2-1-crond-服务管理与访问控制"><a href="#4-2-1-crond-服务管理与访问控制" class="headerlink" title="4.2.1 crond 服务管理与访问控制"></a>4.2.1 crond 服务管理与访问控制</h4><p>crontab 命令是需要 crond 服务支持的，crond 服务同样是独立的服务<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/49.png"><br>crond 服务默认是自启动的，如果服务器上有循环执行的系统定时任务，就不要关闭 crond 服务了。crontab 命令和 at 命令类似，也是通过/etc/cron.allow 和/etc/cron.deny 文件来限制某些用户是否可以使用 crontab 命令的。而且原则也非常相似：</p>
+<ul>
+<li>当系统中有/etc/cron.allow 文件时，只有此文件的用户可以使用 crontab 命令，没有写入的用户不能使用 crontab 命令。同样如果有此文件，/etc/cron.deny 文件会被忽略，/etc/cron.allow 文件的优先级更高。</li>
+<li>当系统中只有/etc/cron.deny 文件时，则写入此文件的用户不能使用 crontab 命令，没有写入文件的用户可以使用 crontab 命令。这个规则基本和 at 的规则一直，同样/etc/cron.allow 文件的优先级比/etc/cron.deny 文件的优先级高，Linux 中默认只有/etc/cron.deny 文件。</li>
+</ul>
+<h4 id="4-2-2-用户的-crontab-设置"><a href="#4-2-2-用户的-crontab-设置" class="headerlink" title="4.2.2 用户的 crontab 设置"></a>4.2.2 用户的 crontab 设置</h4><p>每个用户都可以实现自己的 crontab 定时任务，只要是使用这个用户身份执行“crontab -e”命令即可，当然这个用户不能加入/etc/cron.deny 文件中。<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/50.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/51.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/52.png"><br>在时间表示时，还有一些特殊符号</p>
+<table>
+<thead>
+<tr>
+<th>特殊符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>代表任何时间。比如第一个“*”就代表一小时中每分钟都执行一次的意思。</td>
+</tr>
+<tr>
+<td>，</td>
+<td>代表不连续的时间。比如“0 8,12,16 * * * 命令”，就代表在每天的 8 点 0 分，12 点 0 分，16 点 0 分都执行一次命令</td>
+</tr>
+<tr>
+<td>-</td>
+<td>代表连续的时间范围。比如“0 5 * * 1-6 命令”，代表在周一到周六的凌晨 5 点 0 分执行命令</td>
+</tr>
+<tr>
+<td>*/n</td>
+<td>代表每隔多久执行一次。比如“*/10 * * * * 命令”，代表每隔10 分钟就执行一遍命令</td>
+</tr>
+</tbody></table>
+<p>举例<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/53.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/54.png"></p>
+<h4 id="4-2-3-crontab-的注意事项"><a href="#4-2-3-crontab-的注意事项" class="headerlink" title="4.2.3 crontab 的注意事项"></a>4.2.3 crontab 的注意事项</h4><ul>
+<li>六个选项都不能为空，必须填写。如果不确定使用“*”代表任意时间；</li>
+<li>crontab 定时任务，最小有效时间是分钟，最大时间范围是月。像 2018 年某时执行，3 点 30分 30 秒这样的时间都不能识别；</li>
+<li>在定义时间时，日期和星期最好不要在一条定时任务中出现，因为它们都是以天作为单位，非常容易让管理员混乱；</li>
+<li>在定时任务中，不管是直接写命令，还是在脚本中写命令，最好都是用绝对路径。有时相对路径的命令会报错。</li>
+</ul>
+<h4 id="4-2-4-系统的-crontab-设置"><a href="#4-2-4-系统的-crontab-设置" class="headerlink" title="4.2.4 系统的 crontab 设置"></a>4.2.4 系统的 crontab 设置</h4><p>“crontab -e”是每个用户执行的命令，也就是说不同的用户身份可以执行自己的定时任务。可是有些定时任务需要系统执行，这时我们就需要编辑/etc/crontab 这个配置文件了。当然，并不是说写入/etc/crontab 配置文件中的定时任务执行时，不需要用户身份，而是“crontab -e”命令定义定<br>时任务时，默认用户身份是当前登录用户。而修改/etc/crontab 配置文件时，定时任务的执行着身份是可以手工指定的。这样定时任务的执行会更加灵活，修改起来也更加方便。<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/55.png"></p>
+<p>如何使用系统的 crontab 设置</p>
+<ul>
+<li>第一种方法就是我刚刚说过的，把你需要定时执行的工作写成脚本程序，并赋予执行权限，然后直接把这个脚本复制到/etc/cron{daily,weekly,monthly}目录中的任意一个。比如我需要让某个脚本每周执行，那么就把这个脚本复制到/etc/cron.weekly/目中中。这样这个<br>脚本就会每周执行一次，具体的执行时间要参考 anacron 的配置。</li>
+<li>第二种方法就是修改/etc/crontab 这个配置文件，自己加入自己的定时任务，不过需要注意指定脚本的执行者身份。例如：<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/56.png"><br>只要保存/etc/crontab 文件，这个定时任务就可以执行了，当然要确定 crond 服务是运行的。想修改/etc/crontab 文件，当然我要是 root 用户才可以，普通不能修改，只能使用用户身份的 crontab 命令。</li>
+</ul>
+<h3 id="4-3-anacron"><a href="#4-3-anacron" class="headerlink" title="4.3 anacron"></a>4.3 anacron</h3><p>我们的 Linux 服务器如果不是 24 小时开机的，那么刚好在关机的时<br>间段之内有系统定时任务（cron）需要执行，那么这些定时任务是不会执行的。anacron 就是用来解决这个问题的</p>
+<p>anacron 会使用一天，七天，一个月作为检测周期，用来判断是否有定时任务在关机之后没有执<br>行，如果有这样的任务，anacron 会在特定的时间重新执行这些定时任务。那么 anacron 是如何判断<br>这些定时任务已经超过了执行时间呢？在系统的 /var/spool/anacron/ 目录中存在<br>cron.{daily,weekly,monthly}文件，这些文件中都保存着 anacron 上次执行时的时间。anacron 会去<br>读取这些文件中的时间，然后和当前时间做比较，若果两个时间的差值超过了 anacron 的指定时间差<br>值（一般是 1 天，7 天和一个月），就说明有定时任务漏掉了没有被执行，这时 anacron 会介入而执<br>行这个漏掉的定时任务，从而保证在关机时没有被执行的定时任务不会被漏掉。<br>在 CentOS 6.x 中，我们使用 cronie-anacron 取代了 vixie-cron 软件包。而且在原先的 CentOS<br>版本中/etc/cron.{daily,weekly,monthly}这些目录中的定时任务会同时被 cron 和 anacron 调用，<br>这样非常容易出现重复执行同一个定时任 务的错误。在现在的 CentOS 6.x 中 ，<br>/etc/cron.{daily,weekly,monthly}目录中的定时任务程序只会被 anacron 调用，从而保证这些定时<br>任务只会在每天、每周或每月被定时执行一次，而不会重复执行。这也是我们在上一个小节中介绍的<br>CentOS 6.x 的变化之一。<br>在 CentOS 6.x 中 anacron 还有一个变化，anacron 不再是单独的服务，而变成了系统命令。也就<br>是说我们不再可以使用“service anacron restart”命令来管理anacron服务了。而是需要使用anacron<br>命令来管理 anacron 工作，具体命令如下：<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/57.png"><br>在我们当前的 Linux 中，其实不需要执行任何 anacron 命令，只需要配置好/etc/anacrontab 文<br>件，系统就会依赖这个文件中的设定来通过 anacron 执行定时任务。那么关键就是/etc/anacrontab<br>文件的内容了，这个文件如下：<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/58.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/59.png"><br>这个文件中“RANDOM_DELAY”定义的是最大随机延迟，也就是说 cron.daily 任务如果超过 1 天<br>没有执行，并不会马上执行，而是先延迟强制延迟时间之后，再延迟随机延迟时间之后再执行命令。<br>“START_HOURS_RANGE”定义 anacron 的执行时间范围，anacron 只会在这个时间范围之内执行。<br>我们用 cron.daily 工作来说明下/etc/anacrontab 的执行过程：</p>
+<ul>
+<li>首先读取/var/spool/anacron/cron.daily 中的上一次 anacron 执行的时间；</li>
+<li>和当前时间比较，如果两个时间的差值超过 1 天，就执行 cron.daily 工作；</li>
+<li>执行这个工作只能在 03:00-22:00 之间；</li>
+<li>执行工作时强制延迟时间为 5 分钟，再随机延迟 0-45 分钟时间；</li>
+<li>使用 nice 命令指定默认优先级，使用 run-parts 脚本执行/etc/cron.daily 目录中的所有可执行文件。<br>/etc/cron.{daily,weekly,monthly}中的脚本，在当前的 Linux 中是被 anacron调用的，不再依靠 cron 服务。不过 anacron 不用设置多余的配置，我们只需要把需要定时执行的脚本放入/etc/cron.{daily,weekly,monthly}目录当中，就会每天、每周或每月执行，而且也不再需要启动 anacron 服务了。我们如果做修改的话，只用修改/etc/anacrontab 配置文件即可。比如我更加习惯让定时任务在凌晨 03:00-05:00 执行，就可以如下修改：<br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/60.png"><br><img src="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/61.png"><br>这样我们所有放入/etc/cron.{daily,weekly,monthly}目录中的脚本都会在指定时间运行了，而且也不怕服务器万一关机的情况了。</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'rFeUWk7NpQXiluzcxdQENisf-gzGzoHsz',
+        appKey: 'B4wlcRkF1MrkcQu6RWXSnyN4',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/02/11/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Linux-系统管理">
+                        
+                        <span class="card-title">Linux-系统管理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/02/10/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Linux基础（三）-权限管理">
+                        
+                        <span class="card-title">Linux基础（三）-权限管理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Helene<br />'
+            + '文章作者: Helene<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="4965675848"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2022</span>
+            
+            <a href="/about" target="_blank">Helene</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">59k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+			
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "23";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+    <script src="/js/FunnyTitle.js"></script>
+</body>
+
+</html>
