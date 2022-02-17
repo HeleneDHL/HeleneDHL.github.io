@@ -409,7 +409,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    26 分
+                    27 分
                 </div>
                 
 
@@ -817,6 +817,11 @@ FROM
 ORDER BY
     salary DESC,
     employee_id ASC;
+</code></pre>
+<h4 id="2-3-8-rank-、row-number-、dense-rank"><a href="#2-3-8-rank-、row-number-、dense-rank" class="headerlink" title="2.3.8 rank()、row_number()、dense_rank()"></a>2.3.8 rank()、row_number()、dense_rank()</h4><p><img src="/2021/12/30/MySQLBasics/1.png"></p>
+<pre class=" language-mysql"><code class="language-mysql">select id, name, rank() over(order by score desc) as r from students;
+select id, name, DENSE_RANK() OVER(order by score desc) as dense_r from students;
+select id, name, row_number() OVER(order by score desc) as row_r from students;
 </code></pre>
 <h3 id="2-4-常见函数"><a href="#2-4-常见函数" class="headerlink" title="2.4 常见函数"></a>2.4 常见函数</h3><h4 id="2-4-1-概述"><a href="#2-4-1-概述" class="headerlink" title="2.4.1 概述"></a>2.4.1 概述</h4><p><strong>功能</strong>：类似于java中的方法<br><strong>好处</strong>：</p>
 <ul>
