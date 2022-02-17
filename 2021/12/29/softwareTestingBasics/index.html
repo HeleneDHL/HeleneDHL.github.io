@@ -401,7 +401,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.3k
+                    7.5k
                 </div>
                 
 
@@ -689,6 +689,24 @@
 <li>在网络信号不好时，检查数据是否会一直处于提交中的状态，有无超时限制。如遇数据交换失败时要给予提示</li>
 <li>在网络信号不好时，执行操作后，在回调没有完成的情况下，退出本页面或者执行其他操作的情况，有无异常情况。</li>
 </ol>
+<h2 id="12-adb命令"><a href="#12-adb命令" class="headerlink" title="12 adb命令"></a>12 adb命令</h2><ol>
+<li>安装JDK</li>
+<li>安装SDK</li>
+</ol>
+<h3 id="12-1-查看设备连接"><a href="#12-1-查看设备连接" class="headerlink" title="12.1 查看设备连接"></a>12.1 查看设备连接</h3><pre class=" language-bash"><code class="language-bash">adb devices
+</code></pre>
+<h3 id="12-2-安装SDK文件"><a href="#12-2-安装SDK文件" class="headerlink" title="12.2 安装SDK文件"></a>12.2 安装SDK文件</h3><pre class=" language-bash"><code class="language-bash">adb <span class="token function">install</span> 文件绝对路径 
+</code></pre>
+<h3 id="12-3-覆盖安装SDK文件"><a href="#12-3-覆盖安装SDK文件" class="headerlink" title="12.3 覆盖安装SDK文件"></a>12.3 覆盖安装SDK文件</h3><pre class=" language-bash"><code class="language-bash">adb <span class="token function">install</span> -r  文件绝对路径
+</code></pre>
+<h3 id="12-4-获取当前活动的软件的包名"><a href="#12-4-获取当前活动的软件的包名" class="headerlink" title="12.4 获取当前活动的软件的包名"></a>12.4 获取当前活动的软件的包名</h3><pre class=" language-bash"><code class="language-bash">adb shell dumpsys activity <span class="token function">top</span> <span class="token operator">|</span>findstr “ACTIVITY”
+</code></pre>
+<h3 id="12-5-卸载软件"><a href="#12-5-卸载软件" class="headerlink" title="12.5 卸载软件"></a>12.5 卸载软件</h3><pre class=" language-bash"><code class="language-bash">adb uninstall 包名
+</code></pre>
+<h3 id="12-6-下载日志并重定向到文件"><a href="#12-6-下载日志并重定向到文件" class="headerlink" title="12.6 下载日志并重定向到文件"></a>12.6 下载日志并重定向到文件</h3><pre class=" language-bash"><code class="language-bash">adb logcat –v time<span class="token operator">></span>文件绝对路径
+</code></pre>
+<h3 id="12-7-找到pid号-pid的进程"><a href="#12-7-找到pid号-pid的进程" class="headerlink" title="12.7 找到pid号=pid的进程"></a>12.7 找到pid号=pid的进程</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">netstat</span> –nao<span class="token operator">|</span>findstr “pid”
+</code></pre>
 
                 
             </div>
@@ -1475,7 +1493,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">59k</span>
+                        class="white-color">59.2k</span>
             
             
             
