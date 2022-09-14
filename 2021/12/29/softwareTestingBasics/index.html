@@ -4,17 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="测试环境搭建, Helene">
-    <meta name="description" content="1. 安装JDK1.1 手动安装
-在/usr/local下新建一个java文件夹
-mkdir /usr/local/java
-
- 
-
-将jdk源码包放在/usr/local/java中
-
-解压jdk源码包
-tar -zxvf  jdk-8u">
+    <meta name="keywords" content="软件测试基础知识, Helene">
+    <meta name="description" content="1. 软件测试定义在规定的条件下对程序进行操作，发现程序错误，衡量软件质量，并对其是否能满足设计要求进行评估的过程规定的条件——&amp;gt;测试用例发现程序错误——-&amp;gt;找bug衡量软件质量——-&amp;gt;质量评估满足设计要求——-&amp;gt;满">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -26,7 +17,7 @@ tar -zxvf  jdk-8u">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>测试环境搭建 | Helene</title>
+    <title>软件测试基础知识 | Helene</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -255,12 +246,12 @@ tar -zxvf  jdk-8u">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">测试环境搭建</h1>
+                    <h1 class="description center-align post-title">软件测试基础知识</h1>
                 </div>
             </div>
         </div>
@@ -380,10 +371,6 @@ tar -zxvf  jdk-8u">
                                 <span class="chip bg-color">软件测试</span>
                             </a>
                         
-                            <a href="/tags/%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-                                <span class="chip bg-color">测试环境搭建</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -405,7 +392,7 @@ tar -zxvf  jdk-8u">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-03
+                    2021-12-29
                 </div>
                 
 
@@ -414,14 +401,14 @@ tar -zxvf  jdk-8u">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    7.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    25 分
                 </div>
                 
 
@@ -441,216 +428,285 @@ tar -zxvf  jdk-8u">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1. 安装JDK"></a>1. 安装JDK</h2><h3 id="1-1-手动安装"><a href="#1-1-手动安装" class="headerlink" title="1.1 手动安装"></a>1.1 手动安装</h3><ol>
-<li><p>在/usr/local下新建一个java文件夹</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> /usr/local/java
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/1.png"></p>
+                <h2 id="1-软件测试定义"><a href="#1-软件测试定义" class="headerlink" title="1. 软件测试定义"></a>1. 软件测试定义</h2><p>在<font color="red">规定的条件</font>下对程序进行操作，<font color="red">发现程序错误，衡量软件质量</font>，并对其是否能<font color="red">满足设计要求</font>进行评估的过程<br>规定的条件——&gt;测试用例<br>发现程序错误——-&gt;找bug<br>衡量软件质量——-&gt;质量评估<br>满足设计要求——-&gt;满足需求</p>
+<h2 id="2-软件测试方法分类"><a href="#2-软件测试方法分类" class="headerlink" title="2. 软件测试方法分类"></a>2. 软件测试方法分类</h2><h3 id="2-1-按开发阶段划分"><a href="#2-1-按开发阶段划分" class="headerlink" title="2.1 按开发阶段划分"></a>2.1 按开发阶段划分</h3><h4 id="2-1-1-单元测试"><a href="#2-1-1-单元测试" class="headerlink" title="2.1.1 单元测试"></a>2.1.1 单元测试</h4><p>对软件测组成单位进行测试，其目的是检验软件基本组成单位的正确性。测试对象是软件测试的最小单位：模块。</p>
+<h4 id="2-1-2-集成测试"><a href="#2-1-2-集成测试" class="headerlink" title="2.1.2 集成测试"></a>2.1.2 集成测试</h4><p>将程序模块采用适当的集成策略组装起来，对系统的接口及集成后的功能进行正确性检测的测试工作。集成主要目的是检查软件单位之间的接口是否正确。</p>
+<h4 id="2-1-3-系统测试"><a href="#2-1-3-系统测试" class="headerlink" title="2.1.3 系统测试"></a>2.1.3 系统测试</h4><p>将软件系统看成是一个系统进行的测试。包括对功能、性能以及软件所运行的软硬件环境进行测试。 </p>
+<h4 id="2-1-4-验收测试"><a href="#2-1-4-验收测试" class="headerlink" title="2.1.4 验收测试"></a>2.1.4 验收测试</h4><p>是部署软件之前的一个测试操作。它是技术测试的最后一个阶段，也称为交付测试。向软件购买者展示该软件系统满足原始需求。</p>
+<h3 id="2-2-按是否手工执行划分"><a href="#2-2-按是否手工执行划分" class="headerlink" title="2.2 按是否手工执行划分"></a>2.2 按是否手工执行划分</h3><h4 id="2-2-1-手工测试"><a href="#2-2-1-手工测试" class="headerlink" title="2.2.1 手工测试"></a>2.2.1 手工测试</h4><p>   手工测试是由一个一个的输入用例，然后观察结果，和机器测试相对应，属于比较原始但是必须的一种</p>
+<h4 id="2-2-2-自动化测试"><a href="#2-2-2-自动化测试" class="headerlink" title="2.2.2 自动化测试"></a>2.2.2 自动化测试</h4><p>   在预设条件下运行系统或应用程序，评估运行结果。（预先条件包括：正常条件和异常条件）。简单来说，自动化测试就是把人为驱动的测试行为，转化为机器执行的一种过程。</p>
+<h3 id="2-3-按是否查看代码分"><a href="#2-3-按是否查看代码分" class="headerlink" title="2.3 按是否查看代码分"></a>2.3 按是否查看代码分</h3><h4 id="2-3-1-黑盒测试"><a href="#2-3-1-黑盒测试" class="headerlink" title="2.3.1 黑盒测试"></a>2.3.1 黑盒测试</h4><p>黑盒测试也是功能测试，测试中把被测的软件当作一个黑盒子，不关心盒子的内部结构是什么，只关心软件的输入数据和输出数据。</p>
+<h4 id="2-3-2-白盒测试"><a href="#2-3-2-白盒测试" class="headerlink" title="2.3.2 白盒测试"></a>2.3.2 白盒测试</h4><p>白盒测试又称结构测试、透明盒测试、逻辑驱动测试或基于代码的测试。白盒测试是指打开盒子，去研究里面的源代码和程序结果。</p>
+<h4 id="2-3-3-灰盒测试"><a href="#2-3-3-灰盒测试" class="headerlink" title="2.3.3 灰盒测试"></a>2.3.3 灰盒测试</h4><p>灰盒测试是介于白盒测试和黑盒测试之间的一种，灰盒测试多用于集成测试阶段，不仅关注输入、输出的正确性，同时也关注程序内部的情况。</p>
+<h3 id="2-4-按是否运行划分"><a href="#2-4-按是否运行划分" class="headerlink" title="2.4 按是否运行划分"></a>2.4 按是否运行划分</h3><h4 id="2-4-1-静态测试"><a href="#2-4-1-静态测试" class="headerlink" title="2.4.1 静态测试"></a>2.4.1 静态测试</h4><p>   静态方法是指不运行被测程序本身，仅通过分析或检查源代码语法、结构、过程、接口等来检查程序的正确性，对需求说明书、软件设计说明书、源程序做结构分析、流程图分析、符号执行来找错。</p>
+<h4 id="2-4-2-动态测试"><a href="#2-4-2-动态测试" class="headerlink" title="2.4.2 动态测试"></a>2.4.2 动态测试</h4><p>   通过运行被测程序，检查运行结果与预期结果的差异</p>
+<h3 id="2-5-按测试对象划分"><a href="#2-5-按测试对象划分" class="headerlink" title="2.5 按测试对象划分"></a>2.5 按测试对象划分</h3><h4 id="2-5-1-非功能测试"><a href="#2-5-1-非功能测试" class="headerlink" title="2.5.1 非功能测试"></a>2.5.1 非功能测试</h4><ol>
+<li>检查系统是否满足需求规格说明书中规定的性能<ul>
+<li>稳定性  </li>
+<li>响应时间</li>
+<li>吞吐量</li>
+<li>安全测试</li>
+</ul>
 </li>
-<li><p>将jdk源码包放在/usr/local/java中</p>
+<li>安全测试是一个相对独立的领域，需要更多的专业知识。如：WEB的安全测   试、需要熟悉各种网络协议、防火墙、CDN、数字各种操作系统的漏洞、熟悉路由器等。</li>
+<li>兼容性测试<br> 兼容性测试主要是指软件之间能否很好的运作，会不会有影响、软件和硬件之间能否发挥很好的效率工作，会不会影响导致系统的崩溃。<ul>
+<li>平台测试</li>
+<li>浏览器测试</li>
+<li>软件本身能否向前或向后兼容</li>
+<li>测试软件能否与其他相关软件兼容</li>
+<li>数据兼容性测试 </li>
+</ul>
 </li>
-<li><p>解压jdk源码包</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf  jdk-8u161-linux-x64.tar.gz
-</code></pre>
+<li>文档测试<ul>
+<li>开发文件：可行性研究报告、软件需求说明书、数据要求说明书、概要设计说明书、详细设计说明书、数据库设计说明书、模块开发卷宗。</li>
+<li>用户文件：用户手册、操作手册，用户文档的作用：改善易安装性；改善软件的易学性与易用性；改善软件可靠性；降低技术支持成本。</li>
+<li>管理文件：项目开发计划、测试计划、测试分析报告、开发进度月报、项目开发总结报告。<br>在实际的测试中，最常见的就是用户文件的测试，例如：用户操作说明书等。<br>文档测试关注点：<ul>
+<li>文档的术语</li>
+<li>文档的正确性</li>
+<li>文档的完整性</li>
+<li>文档的一致性</li>
+<li>文档的易用性</li>
+</ul>
 </li>
-<li><p>配置环境变量</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">vi</span> /etc/profile
-</code></pre>
-<p> 添加如下内容，要根据自己安装路径修改<br> export JAVA_HOME=/usr/local/java/jdk1.8.0_161<br> export JRE_HOME=${JAVA_HOME}<br> export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib:CLASSPATH<br> export JAVA_PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin<br> export PATH=${PATH}:${JAVA_PATH}</p>
+</ul>
 </li>
+<li>易用性<br> 易用性是交互的适应性、功能性和有效性的集中体现。又叫用户体验测试。</li>
+<li>界面测试(UI测试)<br> 测试用户界面的功能模块的布局是否合理、整体风格是否一致、各个控件的放置位置是否符合客户使用习惯，此外还要测试界面操作便捷性、导航简单移动，页面元素的可用性，界面文字是否正确，命名是否同意，页面是否美观，文字、图片组合是否完美等。</li>
+<li>安装测试<br>  安装测试是指：测试程序的安装、卸载。最典型的就是APP的安装、卸载。</li>
 </ol>
-<ol start="5">
-<li><p>编辑完之后，保存并退出，然后刷新环境配置使其生效</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/3.png"><br>6、经查看jdk是否安装成功</p>
-<pre class=" language-bash"><code class="language-bash">java -version
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/2.png"></p>
-</li>
+<h4 id="2-5-2-功能测试"><a href="#2-5-2-功能测试" class="headerlink" title="2.5.2 功能测试"></a>2.5.2 功能测试</h4><h3 id="2-6-按测试实施的组织划分"><a href="#2-6-按测试实施的组织划分" class="headerlink" title="2.6 按测试实施的组织划分"></a>2.6 按测试实施的组织划分</h3><h4 id="2-6-1-α测试"><a href="#2-6-1-α测试" class="headerlink" title="2.6.1 α测试"></a>2.6.1 α测试</h4><h4 id="2-6-2-β测试"><a href="#2-6-2-β测试" class="headerlink" title="2.6.2 β测试"></a>2.6.2 β测试</h4><p>α测试与β测试的区别：</p>
+<ol>
+<li>测试的场所不同：α测试是指把用户请到开发方的场所来测试，β测试是指在一个    或多个用户的场所进行测试。</li>
+<li>α测试的环境是受开发方控制的，用户的数量相对比较少，时间比较集中。β测试的环境是不受开发方控制的，用户数量相对比较多，时间不集中。</li>
+<li>α测试先于β测试执行。通用的软件产品需求较大规模的β测试，测试周期比较长。</li>
 </ol>
-<h3 id="1-2-yum安装"><a href="#1-2-yum安装" class="headerlink" title="1.2 yum安装"></a>1.2 yum安装</h3><ol>
-<li><p>安装之前先查看一下有无系统自带jdk</p>
-<pre class=" language-bash"><code class="language-bash">rpm -qa <span class="token operator">|</span><span class="token function">grep</span> java
-rpm -qa <span class="token operator">|</span><span class="token function">grep</span> jdk
-rpm -qa <span class="token operator">|</span><span class="token function">grep</span> gcj
-</code></pre>
-</li>
-<li><p>如果有就使用批量卸载命令</p>
-<pre class=" language-bash"><code class="language-bash">rpm -qa <span class="token operator">|</span> <span class="token function">grep</span> java <span class="token operator">|</span> <span class="token function">xargs</span> rpm -e --nodeps 
-</code></pre>
-</li>
-<li><p>直接yum安装1.8.0版本openjdk</p>
-<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> java-1.8.0-openjdk* -y
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/26.png"></p>
-</li>
-<li><p>配置环境变量</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">vi</span> /etc/profile
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/27.png"></p>
-</li>
-<li><p>使配置文件生效</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token keyword">.</span> /etc/profile
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/28.png"></p>
-</li>
-<li><p>经查看jdk是否安装成功</p>
-<pre class=" language-bash"><code class="language-bash">java -version
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/29.png"><br> 默认jre jdk 安装路径是/usr/lib/jvm 下面</p>
-</li>
-<li><p><font color="#F44336">当再次启动tomcat时报错：( 待解决   )<br> 找不到jdk与jre的路径<br> <img src="/2022/01/03/testEnvironmentSetup/30.png"><br> 修改路径后只能启动一次** </font></p>
-<h2 id="2-安装mysql"><a href="#2-安装mysql" class="headerlink" title="2. 安装mysql"></a>2. 安装mysql</h2></li>
+<h4 id="2-6-3-第三方测试"><a href="#2-6-3-第三方测试" class="headerlink" title="2.6.3 第三方测试"></a>2.6.3 第三方测试</h4><p>介于开发方和用户方之间的组织测试</p>
+<h3 id="2-7-按测试地域划分"><a href="#2-7-按测试地域划分" class="headerlink" title="2.7 按测试地域划分"></a>2.7 按测试地域划分</h3><h4 id="2-7-1-国际化测试"><a href="#2-7-1-国际化测试" class="headerlink" title="2.7.1 国际化测试"></a>2.7.1 国际化测试</h4><p>   软件的国际化和软件的本地化是开发面向全球不同地区用户使用的软件系统的两个过程。而本地化测试和国际化测试则是针对这类软件产品进行的测试。由于软件的全球化普及，还有软件外包行业的兴起，软件的本地化和国际化测试俨然成为了一个独特的测试专门领域。</p>
+<h4 id="2-7-2-本地测试"><a href="#2-7-2-本地测试" class="headerlink" title="2.7.2 本地测试"></a>2.7.2 本地测试</h4><p>   之前的测试都是本地化测试。</p>
+<h2 id="3-软件测试原则"><a href="#3-软件测试原则" class="headerlink" title="3. 软件测试原则"></a>3. 软件测试原则</h2><ol>
+<li>测试应尽早进行，最好在需求阶段就开始接入，因为最严重的错误不外乎是系统不能满足用户的需求。</li>
+<li>程序员(开发)应该避免检查自己的程序，软件测试应该由第三方(测试人员)来负责。</li>
+<li>设计测试用例时应考虑到合法和不合法的输入(比如金额输入框)</li>
+<li>在测试程序时，不仅要检验程序是否做了该做的事情，还要检验程序是否做了不该做的事情，多余的工作会带来副作用，影响程序的效率，有时会带来潜在的危害或错误。</li>
+<li>应长期保留所有测试用例，保留测试用例有助于以后修改程序后的回归测试。</li>
 </ol>
-<h3 id="2-1-手动安装"><a href="#2-1-手动安装" class="headerlink" title="2.1 手动安装"></a>2.1 手动安装</h3><ol>
-<li><p>在/usr/local下新建一个mysql文件夹</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> /usr/local/mysql
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/7.png"></p>
-</li>
-<li><p>将mysql源码包放在/usr/local/mysql中</p>
-</li>
-<li><p>解压mysql源码包</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf mysql-5.7.36-linux-glibc2.12-x86_64.tar.gz 
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/10.png"></p>
-</li>
-<li><p>添加系统mysql组和mysql用户</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">groupadd</span> mysql
-<span class="token function">useradd</span> -r -g mysql mysql
-<span class="token comment" spellcheck="true">#useradd -r参数表示mysql用户是系统用户，不可用于登录系统</span>
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/11.png"></p>
-</li>
-<li><p>创建data目录</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> data
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/12.png"></p>
-</li>
-<li><p>将/usr/local/mysql/mysql-5.7.36-linux-glibc2.12-x86_64的所有者及所属组改为mysql</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">chown</span> -R mysql:mysql /usr/local/mysql/mysql-5.7.36-linux-glibc2.12-x86_64
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/13.png"></p>
-</li>
-<li><p>在/usr/local/mysql/mysql-5.7.36-linux-glibc2.12-x86_64/support-files目录下创建my_default.cnf</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">touch</span> my_default.cnf
-</code></pre>
-<p><img src="/2022/01/03/testEnvironmentSetup/14.png"></p>
-</li>
-<li><p>将如下内容拷贝进my_default.cnf，根据自己安装的路径进行修改</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># For advice on how to change settings please see</span>
-<span class="token comment" spellcheck="true"># http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html</span>
-<span class="token comment" spellcheck="true"># *** DO NOT EDIT THIS FILE. It's a template which will be copied to the</span>
-<span class="token comment" spellcheck="true"># *** default location during install, and will be replaced if you</span>
-<span class="token comment" spellcheck="true"># *** upgrade to a newer version of MySQL.</span>
-
-<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
-sql_mode<span class="token operator">=</span>NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES 
-
-basedir <span class="token operator">=</span> /opt/mysql/mysql-5.7.25
-datadir <span class="token operator">=</span> /opt/mysql/mysql-5.7.25/data
-port <span class="token operator">=</span> 3306
-socket <span class="token operator">=</span> /tmp/mysql.sock
-character-set-server<span class="token operator">=</span>utf8
-
-log-error <span class="token operator">=</span> /opt/mysql/mysql-5.7.25/data/mysqld.log
-pid-file <span class="token operator">=</span> /opt/mysql/mysql-5.7.25/data/mysqld.pid
-
-8、将my_default.cnf拷贝到/etc/my.cnf。或者直接修改my.cnf也可。
-<span class="token function">cp</span> /usr/local/mysql/mysql-5.7.36-linux-glibc2.12-x86_64/support-files/my_default.cnf /etc/my.cnf
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/15.png"></p>
-</li>
-<li><p>初始化mysqld，根据自己安装的目录进行修改</p>
-<pre class=" language-bash"><code class="language-bash">./mysqld --initialize  --user<span class="token operator">=</span>mysql --basedir<span class="token operator">=</span>/usr/local/mysql/mysql-5.7.36-linux-glibc2.12-x86_64/   --datadir<span class="token operator">=</span>/usr/local/mysql/mysql-5.7.36-linux-glibc2.12-x86_64/data/   
-</code></pre>
-<p> <img src="/2022/01/03/testEnvironmentSetup/16.png"></p>
-</li>
-<li><p>查看日志，获取mysql的初始密码</p>
-<pre class=" language-bash"><code class="language-bash"> <span class="token function">cat</span> /usr/local/mysql/mysql-5.7.36-linux-glibc2.12-x86_64/data/mysqld.log
-</code></pre>
-<p><img src="/2022/01/03/testEnvironmentSetup/17.png"></p>
-</li>
-<li><p>登录mysql，密码为初始密码</p>
-<pre class=" language-bash"><code class="language-bash">./mysql -u root -p
-</code></pre>
-<p><img src="/2022/01/03/testEnvironmentSetup/18.png"><br>解决办法：<br>第一步：找到mysql的安装目录，我的是：/usr/local/mysql/mysql-5.7.36-linux-glibc2.12-x86_64，不用去mysql底下的bin目录<br> 第二步：执行 ./support-files/mysql.server start </p>
-<pre class=" language-bash"><code class="language-bash">./support-files/mysql.server start
-</code></pre>
-<p><img src="/2022/01/03/testEnvironmentSetup/20.png"></p>
-</li>
-<li><p>修改密码<br><img src="/2022/01/03/testEnvironmentSetup/21.png"></p>
-</li>
-<li><p>添加远程访问权限 </p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> use mysql;
-mysql> update user set host='%' where user = 'root';
-mysql> flush privileges;
-</code></pre>
-</li>
+<h2 id="4-软件测试策略"><a href="#4-软件测试策略" class="headerlink" title="4. 软件测试策略"></a>4. 软件测试策略</h2><ol>
+<li>选择测试方法<br> 选择对合适当前项目的测试方法(比如项目紧急的时候？项目频繁发版</li>
+<li>角色与职责<br> 需要在测试策略里面明确定义各个角色，以及该角色的职责。比如项目经理，测试组长，测试工程师。</li>
+<li>环境需求<br> 它将描述测试时需要的系统环境(软件，服务器linux，windows，数据库musql)，包括软硬件以及网络环境等待。在澄清环境需求的时候，测试组织可以识别出资源方面的风险。</li>
+<li>风险分析<br> 影响测试过程的风险都应该尽早被识别出来，而且必须有相应的解决办法以便消除或者减轻这些风险。</li>
+<li>测试进度评估<br> 测试进度将会评估完成测试所需要的时间。在设定进度的时候，首先需要明确测试范围(比如说这次增加一个：D模块，部分功能会影响原来已经上线的H模块的功能)，然后根据测试资源的多少来制定能被各方面认可的测试进度计划。</li>
+<li>回归测试策略<br> 回归测试用来保证之前fix bug的代码不会影响软件的其他部分，这    样需要我们选择已经执行过的测试用例重新运行。测试人员需要找到一个方法来确    定哪些测试用例应该在回归测试中运行，用例不能太多，因为资源有限，用例也不    能太少，否则达不到必须的测试强度。</li>
+<li>优先级<br>  测试范围内的东西不会都是一样重要的，加上测试资源各种有限，所以为测试的模块排定优先级是十分必要的。</li>
 </ol>
-<h3 id="2-2-yum安装-CentOS6"><a href="#2-2-yum安装-CentOS6" class="headerlink" title="2.2 yum安装(CentOS6)"></a>2.2 yum安装(CentOS6)</h3><ol>
-<li>查看有没有安装包<pre class=" language-bash"><code class="language-bash">yum list mysql
-</code></pre>
- <img src="/2022/01/03/testEnvironmentSetup/34.png"></li>
-<li>安装mysql客户端<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> mysql
-</code></pre>
- <img src="/2022/01/03/testEnvironmentSetup/35.png"></li>
-<li>安装mysql服务端<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> mysql-server
-</code></pre>
- <img src="/2022/01/03/testEnvironmentSetup/36.png"><pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> mysql-devel
-</code></pre>
-<img src="/2022/01/03/testEnvironmentSetup/37.png"></li>
-<li>启动mysql服务<pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> mysqld start    
-</code></pre>
- <img src="/2022/01/03/testEnvironmentSetup/38.png"></li>
-<li>修改数据库密码<pre class=" language-mysql"><code class="language-mysql">mysqladmin -u root password 123456
-</code></pre>
- <img src="/2022/01/03/testEnvironmentSetup/39.png"></li>
-<li>连接mysql<pre class=" language-mysql"><code class="language-mysql">mysql -u root -p
-</code></pre>
-<img src="/2022/01/03/testEnvironmentSetup/40.png"></li>
-<li>修改端口<br> 在/etc/my.cnf中添加端口，改成自己想要的。例如3506<br> <img src="/2022/01/03/testEnvironmentSetup/42.png"><br> 报错<br> <img src="/2022/01/03/testEnvironmentSetup/41.png"><br> 解决办法：<br> 关闭 SELinux问题<br> setenforce 0<br> <img src="/2022/01/03/testEnvironmentSetup/43.png"></li>
+<h2 id="5-软件测试模型"><a href="#5-软件测试模型" class="headerlink" title="5. 软件测试模型"></a>5. 软件测试模型</h2><h3 id="5-1-瀑布模型"><a href="#5-1-瀑布模型" class="headerlink" title="5.1 瀑布模型"></a>5.1 瀑布模型</h3><p>瀑布模型适用于结构化方法<br>软件项目或产品选择瀑布模型必须满足下列条件<br>在开发时间内需求没有或很少变化<br>分析设计人员应对应用领域很熟悉<br>低风险项目(对目标、环境很熟悉)<br>用户使用环境很稳定<br>用户除提出需求外，很少参与开发工作<br><img src="/2021/12/29/softwareTestingBasics/waterfallModel.png" alt="瀑布模型">   </p>
+<h3 id="5-2-V模型"><a href="#5-2-V模型" class="headerlink" title="5.2 V模型"></a>5.2 V模型</h3><p>优点：</p>
+<ul>
+<li>包含底层测试(单元测试)和高层测试(系统测试)</li>
+<li>清楚的标识了开发和测试的各个阶段；自上而下逐步求精，每个阶段分工明确，便于整体项目的把控。</li>
+<li>V模型的价值在于它非常明确地标明了测试过程中存在的不同级别，并且清楚地描述了这些测试和开发过程期间各阶段的对应关系。<br>缺点：</li>
+<li>自上而下的顺序导致测试工作在编码后，不能及时的进行修改；实际工作中，需求经常变化，导致V模型步骤反复执行，返工量很大，灵活度较低。</li>
+<li>V模型和瀑布模型有一些共同的特征，V模型中的过程从左到右，描述了基本的开发过程和测试行为。</li>
+<li>(测试介入太晚)把测试作为编码之后的最后一个活动，需求分析等前期产生的错误到后期的验收测试才能发现。<br><img src="/2021/12/29/softwareTestingBasics/VModel.png" alt="V模型"><h3 id="5-3-敏捷模型"><a href="#5-3-敏捷模型" class="headerlink" title="5.3 敏捷模型"></a>5.3 敏捷模型</h3><img src="/2021/12/29/softwareTestingBasics/agileModel.png" alt="敏捷模型"></li>
+</ul>
+<h3 id="5-4-探索式测试"><a href="#5-4-探索式测试" class="headerlink" title="5.4 探索式测试"></a>5.4 探索式测试</h3><p>探索性测试可以说是一种测试思维模式。它没有很多实际的测试方法、技术和工具，但是却是所有测试人员都应该掌握的一种测试思维方式。探索性强调测试人员的主观能动性，抛弃繁杂的测试计划和测试用例设计过程，强调在碰到问题时及时改变测试策略。</p>
+<h2 id="6-软件测试生命周期"><a href="#6-软件测试生命周期" class="headerlink" title="6. 软件测试生命周期"></a>6. 软件测试生命周期</h2><p><img src="/2021/12/29/softwareTestingBasics/softwareTestLifeCycle.png" alt="软件测试生命周期"></p>
+<h2 id="7-用例设计"><a href="#7-用例设计" class="headerlink" title="7. 用例设计"></a>7. 用例设计</h2><h3 id="7-1-等价类划分"><a href="#7-1-等价类划分" class="headerlink" title="7.1 等价类划分"></a>7.1 等价类划分</h3><p>定义：依据需求将输入划分为若干等价类，从等价类中选定一个测试用例，如果该测试用例通过，则表明整个等价类通过测试。</p>
+<p>使用场景：对于等价类这个方法，一般适用于有无限多种输入，我们不可能完成穷举测试，等价类这个方法可以使我们用较少的测试用例尽可能多的将功能覆盖<br>无效等价类和有效等价类<br>有效等价类：有意义的输入构成的集合，对于需求规格说明书是合法的<br>无效等价类：不满足需求的集合</p>
+<h3 id="7-2-边界值分析法"><a href="#7-2-边界值分析法" class="headerlink" title="7.2 边界值分析法"></a>7.2 边界值分析法</h3><p>定义：边界值分析法是对等价类划分方法的补充，边界值一般都是从等价类的边缘去寻找错误<br>边界值分析的基本思路：正好等于，刚刚小于，刚刚大于，边界值作为测试数据<br>特记：0/空，N/A，null是一个特殊值，我们在考虑边界值的时候同时也要考虑这个特殊值</p>
+<h3 id="7-3-场景法"><a href="#7-3-场景法" class="headerlink" title="7.3 场景法"></a>7.3 场景法</h3><p>尽可能真实全部的模拟用户操作—订单，发货，商品状态变化<br>场景法主要基于：</p>
+<ol>
+<li>业务(需求)层面：对所测软件的重要功能、业务逻辑(系统要干什么，怎么去实现，这个过程)行业背景深入了解</li>
+<li>技术层面：基于等价类划分，有效等价类—-模拟用户正确操作；无效等价类—模拟错误操作<br>核心概念<br>基本流(正确流、有效流)：模拟用户正确的操作流程<br>备选流(错误流、无效流)：模拟用户错误的操作流程</li>
 </ol>
-<h2 id="3-安装apache"><a href="#3-安装apache" class="headerlink" title="3. 安装apache"></a>3. 安装apache</h2><h3 id="3-1-手动安装"><a href="#3-1-手动安装" class="headerlink" title="3.1 手动安装"></a>3.1 手动安装</h3><ol>
-<li>在/usr/local下新建一个apache文件夹<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> /usr/local/apache
-</code></pre>
- <img src="/2022/01/03/testEnvironmentSetup/4.png"></li>
-<li>将apache源码包放在/usr/local/apache中</li>
-<li>解压apache源码包<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf apache-tomcat-8.5.73.tar.gz 
-</code></pre>
- <img src="/2022/01/03/testEnvironmentSetup/5.png"></li>
-<li>执行/usr/local/apache/apache-tomcat-8.5.73/bin/startup.sh，<br> <img src="/2022/01/03/testEnvironmentSetup/6.png"></li>
-<li>去浏览器输入你的ip:8080,查看apache是否运行成功,若出现一下画面则成功<br> <img src="/2022/01/03/testEnvironmentSetup/8.png"><br> 注意：可能启动Apache失败，有可能是防火墙导致<br> CentOS6：<br> 查看防火墙状态：service iptables status<br> 关闭防火墙：    service iptables stop<br> 开启防火墙：    service iptables start<br> 重启防火墙：service iptables restart<br> 永久关闭防火墙：chkconfig iptables off<br> CentOS7：<br> 查看防火墙状态：firewall-cmd  –state<br> 关闭防火墙：systemctl stop firewalld.service<br> 禁止防火墙开机启动：systemctl disable firewalld.service</li>
-<li>修改端口<br> server.xml可以设置端口号、设置域名或IP、默认加载的项目、请求编码<br> 修改页面访问端口：<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Connector</span> <span class="token attr-name">port</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>8090<span class="token punctuation">"</span></span> <span class="token attr-name">protocol</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>HTTP/1.1<span class="token punctuation">"</span></span>
-                   <span class="token attr-name">connectionTimeout</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>20000<span class="token punctuation">"</span></span>
-                   <span class="token attr-name">redirectPort</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>8443<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-</code></pre>
- <img src="/2022/01/03/testEnvironmentSetup/25.png"><br> 停止端口：<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Server</span> <span class="token attr-name">port</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>8005<span class="token punctuation">"</span></span> <span class="token attr-name">shutdown</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SHUTDOWN<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-</code></pre>
- 监听端口：<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Connector</span> <span class="token attr-name">port</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>8009<span class="token punctuation">"</span></span> <span class="token attr-name">protocol</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>AJP/1.3<span class="token punctuation">"</span></span> <span class="token attr-name">redirectPort</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>8443<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-</code></pre>
-</li>
-<li>tomcat目录结构详解<br> tomcat目录结构详解<a target="_blank" rel="noopener" href="https://www.cnblogs.com/mharvay/p/13700291.html">https://www.cnblogs.com/mharvay/p/13700291.html</a></li>
+<h3 id="7-4-判定表"><a href="#7-4-判定表" class="headerlink" title="7.4 判定表"></a>7.4 判定表</h3><h3 id="7-5-因果图"><a href="#7-5-因果图" class="headerlink" title="7.5 因果图"></a>7.5 因果图</h3><p>利用因果图设计测试用例应遵循的步骤</p>
+<ol>
+<li>分析程序的规格说明书中哪些是原因，哪些是结果。所谓原因，是指输入条件  或输入条件的等价类，而结果是指输出条件，给每一个原因和结果赋一个标识符</li>
+<li>分析程序规格说明书中的语义，确定原因与原因，原因与结果之间的关系，画出因果图</li>
+<li>由于语法环境的限制，一些原因与原因之间，原因与结果之间的组合不能出现。对于这些特殊情况，在因果图中用一些记号标明约束或限制条件</li>
+<li>将因果图转化为判定表</li>
+<li>根据判定表的每一列设计测试用例 </li>
 </ol>
-<h3 id="3-2-yum安装"><a href="#3-2-yum安装" class="headerlink" title="3.2 yum安装"></a>3.2 yum安装</h3><ol>
-<li>安装httpd服务<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span>  httpd -y
-</code></pre>
- <img src="/2022/01/03/testEnvironmentSetup/31.png"></li>
-<li>开启服务<pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> httpd start
-</code></pre>
- <img src="/2022/01/03/testEnvironmentSetup/32.png"></li>
-<li>浏览器输入<a href="http://ip:80出现如下界面">http://ip:80出现如下界面</a><br> <img src="/2022/01/03/testEnvironmentSetup/33.png"><br> 配置文件位置：/etc/httpd/conf/httpd.conf<br> 网页位置：/var/www/html<br> 日志位置：/var/log/httpd<br> 启动：service httpd start</li>
-<li>修改端口<pre class=" language-bash"><code class="language-bash"><span class="token function">vi</span> /etc/httpd/conf/httpd.conf
-</code></pre>
- <img src="/2022/01/03/testEnvironmentSetup/44.png"><br> 然后重新启动服务报错如下<br> <img src="/2022/01/03/testEnvironmentSetup/45.png"><br> 解决办法：<br> 关闭SELinux   这是最快速直接的办法，也是很多人常用的办法，缺点是牺牲了系统的安全。你可以彻底关闭或者将SELinux模式。<br> vi /etc/selinux/config<br> 在SELINUX=enforcing前面加#，将其注释掉<br> 添加一行<br> SELINUX=disabled<br> 保存退出重启系统在开启服务即可<br> <img src="/2022/01/03/testEnvironmentSetup/46.png"><br> <img src="/2022/01/03/testEnvironmentSetup/47.png"></li>
+<h3 id="7-6-错误推测法"><a href="#7-6-错误推测法" class="headerlink" title="7.6 错误推测法"></a>7.6 错误推测法</h3><p>定义：基于经验和直觉推测程序中所有可能存在的各种错误，从而有针对性的设计测试用例的方法<br>2-8原则   80%的问题出在20%的模块中<br>错误推测法的基本思想：列举出程序中所有可能有的错误和容易发生错误的特殊情况，根据他们选择测试用例<br>基本要素：</p>
+<ul>
+<li>对开发的开发习惯很熟悉</li>
+<li>对同类型项目业务非常熟悉</li>
+</ul>
+<h3 id="7-7-正交试验法"><a href="#7-7-正交试验法" class="headerlink" title="7.7 正交试验法"></a>7.7 正交试验法</h3><p>正交试验是研究多因素，多水平的一种试验法，它是利用正交表来对试验进行设计，通过少数的试验替代全面试验，根据正交表的正交性从全面试验中挑选适量的、有代表性的点进行试验，这些有代表性的点具备了均匀分散，整齐可比的特点。因素之间互不影响。</p>
+<h2 id="8-需求澄清"><a href="#8-需求澄清" class="headerlink" title="8. 需求澄清"></a>8. 需求澄清</h2><h3 id="8-1-需求阶段位置"><a href="#8-1-需求阶段位置" class="headerlink" title="8.1 需求阶段位置"></a>8.1 需求阶段位置</h3><p>需求是软件项目研发的开始<br>需求是组件研发团队后第一次集体参与讨论的事情<br>需求是保障质量的最重要的一环</p>
+<h3 id="8-2-需求会议"><a href="#8-2-需求会议" class="headerlink" title="8.2 需求会议"></a>8.2 需求会议</h3><h2 id="9-测试计划"><a href="#9-测试计划" class="headerlink" title="9. 测试计划"></a>9. 测试计划</h2><p>软件测试是有计划，有组织和由系统的软件质量保证活动，而不是随意地，松散的、杂乱地实施过程。为了规范软件测试内容、方法和过程，在对软件进行测试之前，必须创建测试计划。<br>测试计划：一个叙述了预定地测试活动地范围(哪些模块)、测试资源(软件、硬件)及进度安排的文档。它确认了测试项、被测特征、测试任务、人员安排，以及任何偶发事件的风险。<br>包含了产品概述、测试策略、测试方法、测试范围、事件安排、测试人力、风险分析等内容。<br>为什么要写测试计划</p>
+<ol>
+<li>使软件测试工作进行更顺利：计划使我们软件测试工作的预先安排，为我们的整个测试工作指明方向(该怎么进行，什么时候进行)</li>
+<li>促进项目参加人员彼此的沟通：测试人员能够了解整个项目测试情况以及项目测试不同阶段的所有要进行的工作等。这种形式使测试工作与开发工作紧密联系起来。</li>
+<li>使软件测试工作更易于管理：领导能够根据测试计划做宏观调控，进行相应的资源配置等；其他人员了解测试人员的工作内容，进行有关配合工作。按照这种方式，资源与变更变成了一个可控制的风险。<br>什么时候开始编写测试计划：确定什么事件开始做测试计划使很重要的，一般来说是测试需求分析完成之后开始。<br>谁编写测试计划：编写测试计划是一项系统工作，编写者必须对项目了解，对测试工作所接触到的方方面面都要有系统地把握。因此一般情况下是由具有丰富经验地项目测试负责人或者测试负责人进行编写。<br>测试计划编写原则：</li>
+<li>制定测试计划应尽早开始：越早进行测试计划，从最根本地地方去了解我们所要测试的对象及内容，方便后续完善测试计划</li>
+<li>保持测试计划简介和易读：测试计划做出来后应该能够让测试人员明了自己的任务和计划</li>
+<li>尽量争取多渠道评审测试嘉华：通过不同的人来发现测试计划中的不足及缺陷，可以很好的改进测试计划的质量</li>
+<li>计算测试的投入：投入到测试中的项目经费是一定的，我们指定测试计划时一定要注意测试计划的费用情况，要量力而行</li>
 </ol>
-<h2 id="4-测试环境搭建"><a href="#4-测试环境搭建" class="headerlink" title="4. 测试环境搭建"></a>4. 测试环境搭建</h2><h3 id="4-1-war包形式的测试环境搭建"><a href="#4-1-war包形式的测试环境搭建" class="headerlink" title="4.1 war包形式的测试环境搭建"></a>4.1 war包形式的测试环境搭建</h3><ol>
-<li>确定java环境<br>   java -version</li>
-<li>确定数据库状态<br>  netstat -tlnp<br>  <img src="/2022/01/03/testEnvironmentSetup/22.png"></li>
-<li>确定tomcat状态<br>  <img src="/2022/01/03/testEnvironmentSetup/23.png"></li>
-<li>将项目的war文件放在Apache下的webapps目录下<br>  开启浏览器访问项目如：<a target="_blank" rel="noopener" href="http://ip:8080/warehouse/html/login.html">http://ip:8080/warehouse/html/login.html</a></li>
+<h2 id="10-BUG"><a href="#10-BUG" class="headerlink" title="10 BUG"></a>10 BUG</h2><h3 id="10-1-Bug的定义"><a href="#10-1-Bug的定义" class="headerlink" title="10.1 Bug的定义"></a>10.1 Bug的定义</h3><p>电脑程序里的错误，而现在更是将其延生为漏洞，错误，可改进的细节、或与需求文档存在差异的功能实现等。</p>
+<p><img src="/2021/12/29/softwareTestingBasics/bugTrackingProcess.png" alt="bug跟踪流程"></p>
+<h3 id="10-2-BUG的分类"><a href="#10-2-BUG的分类" class="headerlink" title="10.2 BUG的分类"></a>10.2 BUG的分类</h3><ol>
+<li>代码错误（错误页404、500）</li>
+<li>界面优化（UI问题，图文显示）</li>
+<li>安装部署（安装失败，无法访问等）</li>
+<li>性能问题（响应时间久，加载慢）</li>
+<li>安全相关（密码：123456 ****）</li>
+<li>其他划分（易用性、兼容性类）</li>
+<li>设计缺陷（需求问题）</li>
 </ol>
+<h3 id="10-3-Bug的严重程度"><a href="#10-3-Bug的严重程度" class="headerlink" title="10.3 Bug的严重程度"></a>10.3 Bug的严重程度</h3><ol>
+<li>致命的–最高<br> 系统崩溃（请求直接把服务器搞坏）、死机、死循环，导致数据库数据丢失，与数  据库连接错误，主要功能丧失，基本模块缺失，重要的以及菜单功能不能使用等。</li>
+<li>严重的–高<br>系统主要功能部分丧失、数据库保存，提交调用错误，功能设计与需求严重不符，自动退出，稳定性差，数值计算统计错误等（该等级问题出现在不影响其他功能测试的情况下可以继续该版本）</li>
+<li>一般的–中<br> 功能菜单没有完全实现存在缺陷但不会影响系统稳定性。如：操作时间长、查询时间长、格式错误、边界条件错误，删除没有确认框、数据库表中字段过多等（该问题实际测试中存在最多）</li>
+<li>轻微的–低<br> 兼容性，界面优化，不影响操作功能的执行，错别字，页面显示重叠，提示语丢失（此类问题在测试初期较多，优先程度较低）登录</li>
+<li>建议性–低</li>
+</ol>
+<h3 id="10-4-BUG优先级"><a href="#10-4-BUG优先级" class="headerlink" title="10.4 BUG优先级"></a>10.4 BUG优先级</h3><p>非常紧急、紧急、一般、不重要</p>
+<h3 id="10-5-BUG的状态标准"><a href="#10-5-BUG的状态标准" class="headerlink" title="10.5 BUG的状态标准"></a>10.5 BUG的状态标准</h3><ol>
+<li>待处理（提交–激活）<br>测试人员或用户发现新问题后提交的状态</li>
+<li>已确认<br>经测试人员及研发人员讨论后确认是bug，提交的状态，由开发点击确认按钮</li>
+<li>已处理=已解决<br>经研发人员确认是bug后修复的状态，修改还没有验证，有开发人员来设置</li>
+<li>已修改=已关闭—–最终的bug状态<br>测试人员认为问题已经修改，通过验证，有测试人员设置</li>
+<li>任存在=重新打开<br>测试人员认为bug未修复成功，问题任然存在，有测试人员设置</li>
+<li>不是bug<br>研发人员确认不是bug，或者建议与意见决定不采纳，由开发人员设置</li>
+<li>暂不处理=挂起<br>当前版本不做修改，后续版本再考虑，或者一时不确定是解决不解决，需要过一两天来决定，这样的bug就需要一个挂起状态由研发人员或测试人员设置。</li>
+</ol>
+<h3 id="10-6-如何创建一个高质量的BUG"><a href="#10-6-如何创建一个高质量的BUG" class="headerlink" title="10.6 如何创建一个高质量的BUG"></a>10.6 如何创建一个高质量的BUG</h3><ol>
+<li>标题：主要简明扼要地描述了bug，可以让人快速的了解问题</li>
+<li>测试环境：什么环境下发现的，软件和硬件系统，什么版本，如果需要，还应注明那个，硬件平台</li>
+<li>前提条件：用户测试步骤前的系统环境信息（bug在什么环境或者设置下出现）</li>
+<li>测试步骤：在执行什么操作时，发现问题</li>
+<li>实际结果：在测试软件的过程中，软件本身表现出的结果，可能与预期结果有出入</li>
+<li>预期结果：软件设计所要求达到的需求本身达到的目的，预期目标</li>
+<li>附件—主要</li>
+</ol>
+<h3 id="10-7-怎样与开发沟通"><a href="#10-7-怎样与开发沟通" class="headerlink" title="10.7 怎样与开发沟通"></a>10.7 怎样与开发沟通</h3><ol>
+<li>确保自己提交的是个bug，并且能重现这个bug</li>
+<li>如果开发有疑问，或者说没有问题的时候，我们可以从用户的角度解释使用系统时，用户的操作怎样的不便一</li>
+<li>Bug步骤需要写清楚，或者描述清楚，开发人员在了解问题所在后，可以准确定位</li>
+<li>跟研发确认清楚，修改这块后，主要影响哪里，会对其他模块有影响没，有的话，我们需要重新关注</li>
+</ol>
+<h2 id="11-APP测试-专项测试"><a href="#11-APP测试-专项测试" class="headerlink" title="11. APP测试-专项测试"></a>11. APP测试-专项测试</h2><h3 id="11-1-安装测试"><a href="#11-1-安装测试" class="headerlink" title="11.1 安装测试"></a>11.1 安装测试</h3><ol>
+<li>软件在不同操作系统下安装是否正常</li>
+<li>软件安装后是否能够正常运行，安装后的文件及文件夹是否写到了指定的目录里</li>
+<li>软件安装各个选项的组合是否符合概要设计说明</li>
+<li>软件安装向导的UI测试</li>
+<li>软件安装过程是否可以取消，点击取消后，写入的文件是否如概要设计说明处理</li>
+<li>软件安装过程中意外情况的处理是否符合需求（如死机，重启，断电）</li>
+<li>安装空间不足时是否有相应提示—-特殊极限</li>
+<li>对于需要通过网络验证之类的安装，在断网情况下尝试一下（点点头，眨眨眼）</li>
+<li>对安装手册进行测试，依照安装手册是否能顺利安装（官网帮助手册）</li>
+<li>二次安装（覆盖重新安装）</li>
+<li>浏览器下载.apk安装（app安装包传到手机安装）</li>
+</ol>
+<h3 id="11-2-卸载测试"><a href="#11-2-卸载测试" class="headerlink" title="11.2 卸载测试"></a>11.2 卸载测试</h3><ol>
+<li>直接删除安装文件夹卸载是否有提示信息</li>
+<li>测试系统直接卸载程序是否有提示信息</li>
+<li>卸载过程中出现的意外情况的测试（如死机、断电、重启）</li>
+<li>卸载是否支持取消功能，单击取消后软件卸载的情况</li>
+<li>系统直接卸载UI测试，是否有卸载状态进度条提示 </li>
+</ol>
+<h3 id="11-3-导航测试"><a href="#11-3-导航测试" class="headerlink" title="11.3 导航测试"></a>11.3 导航测试</h3><ol>
+<li>按钮、对话框、列表和窗口等；或在不同的连接页面之间需要导航</li>
+<li>是否易于导航，导航是否直观</li>
+<li>是否需要搜索引擎</li>
+<li>导航与页面结构、菜单、连接页面的风格是否一致</li>
+</ol>
+<h3 id="11-4-图形测试"><a href="#11-4-图形测试" class="headerlink" title="11.4 图形测试"></a>11.4 图形测试</h3><ol>
+<li>横向比较。各控件操作方式统一</li>
+<li>自适应界面设计，内容根据窗口大小自适应</li>
+<li>页面标签风格是否统一</li>
+<li>页面是否美观</li>
+<li>页面的图片应有其实际以及而要求整体有序美观</li>
+<li>图片质量要高且图片尺寸在设计符合要求的情况下应尽量小</li>
+<li>界面整体使用的颜色不宜过多</li>
+</ol>
+<h3 id="11-5-内容测试"><a href="#11-5-内容测试" class="headerlink" title="11.5 内容测试"></a>11.5 内容测试</h3><ol>
+<li>输入框说明文字的内容与系统功能是否一致</li>
+<li>文字长度是否加以限制</li>
+<li>文字内容是否表意不明</li>
+<li>是否有错别字，敏感词</li>
+<li>是否有敏感性图片，如：设计版权、专利、隐私等图片</li>
+</ol>
+<h3 id="11-6-运行测试"><a href="#11-6-运行测试" class="headerlink" title="11.6 运行测试"></a>11.6 运行测试</h3><ol>
+<li>App安装完成后的试运行，可以正常打开软件</li>
+<li>App打开测试，是否有加载状态进度提示</li>
+<li>App打开速度测试，速度是否客观</li>
+<li>App页面间的切换是否流畅，逻辑是否正确</li>
+</ol>
+<h3 id="11-7-APP更新升级"><a href="#11-7-APP更新升级" class="headerlink" title="11.7 APP更新升级"></a>11.7 APP更新升级</h3><ol>
+<li>当客户端有新版本时，有更新提示</li>
+<li>当版本为非强制升级版时，用户可以取消更新，老版本能正常使用。用户在下次启动app时，仍能出现更新提示</li>
+<li>当版本为强制升级版时，当给出强制更新后用户没有做更新时，退出客户端。下次启动app时，仍出现轻质升级提示</li>
+<li>当客户端有新版本时，在本地不删除客户端的情况下，直接更新兼差是否能正常更新</li>
+<li>当客户端有新版本时，在本地删除客户端的情况下，检查更新后的客户端功能是否是新版本</li>
+<li>当客户端有新版本时，在本地不删除客户端的情况下，检查资源同名文件如图片是否能正常更新最新版本</li>
+</ol>
+<h3 id="11-8-交叉时间测试"><a href="#11-8-交叉时间测试" class="headerlink" title="11.8 交叉时间测试"></a>11.8 交叉时间测试</h3><ol>
+<li>多个App同事运行是否影响正常功能</li>
+<li>App运行时前后台切换是否影响功能</li>
+<li>App运行时拨打/接听电话</li>
+<li>App运行时发送/接受信息</li>
+<li>App运行时发送/接受邮件</li>
+<li>App运行时切换网络（2G、3G、4G、5G、wifi）</li>
+<li>App运行时浏览网页</li>
+<li>App运行时使用蓝牙传送/接受数据</li>
+<li>App运行时使用相机、计算器等手机自带设备</li>
+</ol>
+<h3 id="11-9-兼容性测试"><a href="#11-9-兼容性测试" class="headerlink" title="11.9 兼容性测试"></a>11.9 兼容性测试</h3><ol>
+<li>系统版本兼容性测试（ios、android、鸿蒙）</li>
+<li>设备兼容性测试（华为、荣耀、苹果、小米、三星、魅族、诺基亚等等）</li>
+<li>分辨率兼容性测试（720p（720<em>1280），1080p（1080</em>1920），2K（2560*1440）） </li>
+<li>埋点–自有埋点，第三方埋点</li>
+</ol>
+<h3 id="11-10-用户体验测试"><a href="#11-10-用户体验测试" class="headerlink" title="11.10 用户体验测试"></a>11.10 用户体验测试</h3><p>以主观的普通消费者的角度去感知产品或服务的舒适、有用、易用、友好亲切程度。通过不同个体、独立空间和非经验的统计服用方式去有效评价产品的体验特性提出修改意见提升产品潜在的客户满意度。</p>
+<ol>
+<li>是否有空数据界面设计，引导用户去执行操作</li>
+<li>是否滥用用户引导</li>
+<li>是否有不可点击的小幅哦，如：你的按钮此时处于不可用状态，那么一定要灰掉，或者拿掉按钮，否则会给用户误导</li>
+<li>菜单层次是否太深</li>
+<li>交互流程分支是否太多</li>
+<li>界面中按钮可点击范围是否适中</li>
+<li>标签页是否跟内容没有从属关系，当切换标签的时候，内容跟着切换</li>
+<li>是否定义back的逻辑。设计软硬件交互时，back应具体定义</li>
+<li>是否有横屏模式的设计，应用一般需要支持横屏模式，即自适应设计</li>
+</ol>
+<h3 id="11-11-手势操作测试"><a href="#11-11-手势操作测试" class="headerlink" title="11.11 手势操作测试"></a>11.11 手势操作测试</h3><ol>
+<li>手机锁屏对运行中的App的影响</li>
+<li>切换网络对运行中的App的影响</li>
+<li>运行中的App前后台切换的影响</li>
+<li>多个运行中的App的切换</li>
+<li>App运行时关机</li>
+<li>App运行时重启系统</li>
+<li>App运行时充电</li>
+<li>App运行时kill掉进程再打开</li>
+</ol>
+<h3 id="11-12-网络环境测试"><a href="#11-12-网络环境测试" class="headerlink" title="11.12 网络环境测试"></a>11.12 网络环境测试</h3><p>手机的网络目前主要分为3G、4G、5G、wifi。目前3G的网络相较于比较慢，测试时尤其要注意此块的测试。</p>
+<ol>
+<li>无网络时，执行需要网络的操作，给予友好提示</li>
+<li>在网络信号不好时，检查功能状态是否正常，确保不因提交数据失败而造成数据丢失</li>
+<li>在网络信号不好时，检查数据是否会一直处于提交中的状态，有无超时限制。如遇数据交换失败时要给予提示</li>
+<li>在网络信号不好时，执行操作后，在回调没有完成的情况下，退出本页面或者执行其他操作的情况，有无异常情况。</li>
+</ol>
+<h2 id="12-adb命令"><a href="#12-adb命令" class="headerlink" title="12 adb命令"></a>12 adb命令</h2><ol>
+<li>安装JDK</li>
+<li>安装SDK</li>
+</ol>
+<h3 id="12-1-查看设备连接"><a href="#12-1-查看设备连接" class="headerlink" title="12.1 查看设备连接"></a>12.1 查看设备连接</h3><pre class=" language-bash"><code class="language-bash">adb devices
+</code></pre>
+<h3 id="12-2-安装SDK文件"><a href="#12-2-安装SDK文件" class="headerlink" title="12.2 安装SDK文件"></a>12.2 安装SDK文件</h3><pre class=" language-bash"><code class="language-bash">adb <span class="token function">install</span> 文件绝对路径 
+</code></pre>
+<h3 id="12-3-覆盖安装SDK文件"><a href="#12-3-覆盖安装SDK文件" class="headerlink" title="12.3 覆盖安装SDK文件"></a>12.3 覆盖安装SDK文件</h3><pre class=" language-bash"><code class="language-bash">adb <span class="token function">install</span> -r  文件绝对路径
+</code></pre>
+<h3 id="12-4-获取当前活动的软件的包名"><a href="#12-4-获取当前活动的软件的包名" class="headerlink" title="12.4 获取当前活动的软件的包名"></a>12.4 获取当前活动的软件的包名</h3><pre class=" language-bash"><code class="language-bash">adb shell dumpsys activity <span class="token function">top</span> <span class="token operator">|</span>findstr “ACTIVITY”
+</code></pre>
+<h3 id="12-5-卸载软件"><a href="#12-5-卸载软件" class="headerlink" title="12.5 卸载软件"></a>12.5 卸载软件</h3><pre class=" language-bash"><code class="language-bash">adb uninstall 包名
+</code></pre>
+<h3 id="12-6-下载日志并重定向到文件"><a href="#12-6-下载日志并重定向到文件" class="headerlink" title="12.6 下载日志并重定向到文件"></a>12.6 下载日志并重定向到文件</h3><pre class=" language-bash"><code class="language-bash">adb logcat –v time<span class="token operator">></span>文件绝对路径
+</code></pre>
+<h3 id="12-7-找到pid号-pid的进程"><a href="#12-7-找到pid号-pid的进程" class="headerlink" title="12.7 找到pid号=pid的进程"></a>12.7 找到pid号=pid的进程</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">netstat</span> –nao<span class="token operator">|</span>findstr “pid”
+</code></pre>
 
                 
             </div>
@@ -667,10 +723,6 @@ mysql> flush privileges;
                             
                                 <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">
                                     <span class="chip bg-color">软件测试</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-                                    <span class="chip bg-color">测试环境搭建</span>
                                 </a>
                             
                         </div>
@@ -1109,13 +1161,13 @@ mysql> flush privileges;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/01/05/MySQLSenior/">
+                <a href="/2021/12/30/MySQLBasics/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="MySQ高级">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="MySQL基础知识（一）">
                         
-                        <span class="card-title">MySQ高级</span>
+                        <span class="card-title">MySQL基础知识（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1126,7 +1178,7 @@ mysql> flush privileges;
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-05
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-30
                         </span>
                         <span class="publish-author">
                             
@@ -1158,13 +1210,12 @@ mysql> flush privileges;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/31/MySQLBasics2/">
+                <a href="/2021/12/28/blogSetUp/">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/banner2.jpg" class="responsive-img" alt="博客搭建(一)   雏形">
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="MySQL基础知识（二）">
-                        
-                        <span class="card-title">MySQL基础知识（二）</span>
+                        <span class="card-title">博客搭建(一)   雏形</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1175,14 +1226,14 @@ mysql> flush privileges;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
+                                    博客搭建
                                 </a>
                             
                             
@@ -1192,8 +1243,16 @@ mysql> flush privileges;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+                        <span class="chip bg-color">博客搭建</span>
+                    </a>
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                    <a href="/tags/Github-Pages/">
+                        <span class="chip bg-color">Github Pages</span>
                     </a>
                     
                 </div>
